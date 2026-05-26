@@ -681,7 +681,7 @@ export default function Dashboard() {
                             <h4 className="text-xs font-bold text-purple-300 uppercase tracking-wider">📱 Post de Facebook Listo</h4>
                             
                             <button 
-                              onClick={() => copyToClipboardFb(editFields.Texto_Post || detailContent.post)}
+                              onClick={() => copyToClipboardFb(editFields.Texto_Post)}
                               className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
                                 copySuccessFb 
                                   ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 animate-pulse'
@@ -694,7 +694,7 @@ export default function Dashboard() {
                           </div>
                           
                           <textarea
-                            value={editFields.Texto_Post || detailContent.post}
+                            value={editFields.Texto_Post}
                             onChange={(e) => setEditFields(prev => ({ ...prev, Texto_Post: e.target.value }))}
                             className="form-input w-full text-xs font-sans h-32 resize-none"
                             placeholder="Introduce el texto del post aquí..."
@@ -706,7 +706,7 @@ export default function Dashboard() {
                             <h4 className="text-xs font-bold text-purple-300 uppercase tracking-wider">📷 Post de Instagram Listo (Máx. 2200)</h4>
                             
                             <button 
-                              onClick={() => copyToClipboardIg(editFields.Texto_Post_Instagram || detailContent.post_instagram)}
+                              onClick={() => copyToClipboardIg(editFields.Texto_Post_Instagram)}
                               className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
                                 copySuccessIg 
                                   ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 animate-pulse'
@@ -719,7 +719,7 @@ export default function Dashboard() {
                           </div>
                           
                           <textarea
-                            value={editFields.Texto_Post_Instagram || detailContent.post_instagram}
+                            value={editFields.Texto_Post_Instagram}
                             onChange={(e) => setEditFields(prev => ({ ...prev, Texto_Post_Instagram: e.target.value }))}
                             className="form-input w-full text-xs font-sans h-32 resize-none"
                             placeholder="Introduce el texto del post para Instagram..."
@@ -727,14 +727,14 @@ export default function Dashboard() {
                           
                           <div className="flex justify-between items-center mt-1.5 px-1">
                             <span className={`text-[10px] font-mono ${
-                              (editFields.Texto_Post_Instagram || detailContent.post_instagram || '').length > 2200 
+                              editFields.Texto_Post_Instagram.length > 2200 
                                 ? 'text-rose-500 font-bold' 
                                 : 'text-purple-400'
                             }`}>
-                              {(editFields.Texto_Post_Instagram || detailContent.post_instagram || '').length} / 2200 caracteres
+                              {editFields.Texto_Post_Instagram.length} / 2200 caracteres
                             </span>
                             
-                            {(editFields.Texto_Post_Instagram || detailContent.post_instagram || '').length > 2200 && (
+                            {editFields.Texto_Post_Instagram.length > 2200 && (
                               <span className="text-[10px] text-rose-500 font-semibold flex items-center gap-1">
                                 <AlertCircle className="w-3 h-3" /> Excede el límite de Instagram
                               </span>
