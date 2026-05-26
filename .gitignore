@@ -1,0 +1,39 @@
+# Dependencies
+dashboard/node_modules/
+
+# Next.js Build files
+dashboard/.next/
+dashboard/out/
+
+# Local Environment files (Contains private Gemini API key)
+dashboard/.env
+dashboard/.env.local
+dashboard/.env.development.local
+dashboard/.env.individual.local
+dashboard/.env.production.local
+dashboard/.env.test.local
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Virtual environments & local execution artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+ENV/
+.agent/
+*.log
+
+# Large media files (optional, to keep repo clean)
+*.mp3
+*.mp4
+*.png
+*.jpg
+*.jpeg
+*.pdf
+!cover_stanford.png
+!cover_stanford.py

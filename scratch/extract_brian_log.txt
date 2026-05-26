@@ -1,0 +1,4 @@
+Starting extraction of Brian Tracy Book, Chapter 2...
+Total pages in book: 124
+Extraction range: Pages 23 to 37
+Extraction successful! Extracted 35548 characters and saved to c:\Users\neo\Documents\agente\mensajes positivos\extracto_brian_cap2.txt

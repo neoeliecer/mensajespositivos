@@ -1,0 +1,553 @@
+--- Page 291 ---
+REDES Y PANTALLAS
+
+--- Page 292 ---
+13. La cara oculta de las redes
+Hace años un amigo mío asistió a una conferencia en Estados
+Unidos de Tristan Harris. Recuerdo su llamada nada más acabar el
+evento: 
+—¡Marian, tienes que conocerle!
+Empecé a leer sobre él y me pareció fascinante la labor que
+estaba realizando . Tristan es uno de los divulgador es más
+importantes en temas de algori tmos, redes y adicciones. Participó
+activamente en el documental El dilema de las redes del que ya te
+he hablado. Siempre que tengo oportunidad invito a que lo vean en
+colegios, universidades, hospitales, familias… Trata de lo que hay
+detrás de las aplicaciones, likes, notificaciones… Repito de nuevo,
+esos algori tmos saben much o de nosotr os y están diseñados para
+vender sus artículos o para que pasemos tiempo navegando por su
+aplicación o web. No hace mucho , buscando un regalo para mi
+hermana por su santo , entré en internet y en menos de un minuto
+me salieron, «recomendados», dos productos que me encantaban ¡a
+mí! Pensé: «¡Es alucinante el grado de conocimiento que tienen
+sobre mis gustos!». No es casual, ¡están diseñados para que así
+sea! 
+Te contar é más sobre Tristan  Harris, ya que es un personaje clave
+con el que comparto mucha s ideas. Pero antes déjame explicarte
+
+--- Page 293 ---
+cómo se fraguó Instagr am y hablarte de una de las figuras
+relevantes en el modelo de la tecnología persuasiv a. 
+EL HOMBRE QUE CREA MILLONARIOS
+En el año 2002, en la Universidad de Stanford, el doctor B. J. Fogg
+impartía un curso que él mismo había creado denominado
+Labor atorio de Tecnología Persuasiv a —Persuasiv e Technology Lab—,
+ahora llamado Stanford Behavior Design Lab. Fogg había comenzado
+en los años noventa con su investigación a la que bautizó como
+Captology , que trataba de emplear la tecnología para, a través de
+refuerzos e incentiv os, persu adir a la gente para que cambiar a su
+comportamiento . En uno de sus experimentos demostró que los
+empleados trabajaban mejor si el ordenador les otorgaba
+comentarios positivos y motiv adores. Lo que él exponía  es que si
+querías que alguien cambiar a, tenías que aumentar su motiv ación o
+sus habilidades.  Cuando esa tarea a realizar es sencilla, la
+motiv ación es menor , por lo que debe existir cierta i lusión. 
+En su curso de Stanford recomendaba a los alumnos lectur as de
+filósofos y psicólogos que hubier an investigado cómo respondía el
+cerebro a los refuerzos y condicionamientos. Uno de los más leídos
+era Burrhus F . Skinner . 
+LA CAJA DE SKINNER
+Numer osos científicos y pensador es han analizado en diferentes épocas de la
+historia la conducta  humana. En temas  de refuerzo positivo, B. F. Skinner , psicólogo ,
+filósofo e inventor estadounidense, fue un referente —ya antes, Ivan Pavlov y John
+B. Watson habían tratado sobre ello—. Él observ aba cómo las personas respondían
+ante distintas cir cunstancias y acontecimientos. 
+En uno de sus experimentos metió una rata en una caja con una palanca y un
+dispensador de alimentos. Se trataba de una jaula cerrada y aislada de ruidos para
+que no existiesen condicionantes externos. Cuando el animal presionaba la palanca,
+
+--- Page 294 ---
+caía la comida. Pero aunque no cayera comida, el animal insistía tocando la palanca.
+Se dio cuenta entonces de que la rata aprendía por asociación. Su conclusión fue
+que una persona tenía más posibi lidades de repetir una conducta si recibía un
+refuerzo positivo, y de igual maner a frenaría o no repetiría aquel la que estuvier a
+vinculada a uno negativ o. Su teoría se conoce como condicionamiento operante o
+instrumental.
+Con el apogeo de las redes sociales, las ideas de Skinner
+volvier on con fuerza para modificar los sistemas de recompensa de
+la población. Fogg enseñaba a los emprendedor es de Silicon Valley a
+diseñar aplicaciones y crear contenidos que tuvier an la capacidad de
+captar la atención y modificar la conducta de los usuarios sin que
+ellos fueran conscientes. Tristan Harris —uno de sus alumnos—
+habló tiempo después con el periodista Johann Hari sobre su
+experiencia en estas clases. Le dijo que existían unas normas
+invisibles que mandan sobre lo que hace la población y que él tenía
+la sensa ción de estar siendo partícipe de la revelación al público de
+esas normas.
+En ese curso Tristan coincidió  con Mike Krieger . Fogg les pidió ese
+año que desarr ollaran una aplicación que permi tiera a un usuario
+enviar una imagen de un día soleado a otro que viviera en un lugar
+frío e invernal para animarle. Se llamaba Envía el Sol. Los dos se
+conectaban con su localización y dependiendo del clima en el que se
+encontr aban, se mandaban fotos soleadas para subir el ánimo al
+otro. Mike, al ver que la aplicación tenía una finalidad agradable —tú
+le importabas a una persona  que estaba lejos y compar tía contigo
+sus fotos—, se unió a otro compañer o, Kevin Systrom, para buscar
+distintas maner as de compartir fotos online —apoyándose en la
+teoría de Skinner —, intentando que hubier a un refuerzo positivo a
+base de comentarios, likes o corazones. Y, gracias a los
+conocimientos que estaban adquiriendo con su primer a aplicación,
+Envía el Sol, decidier on lanzar la suya propia a la que llamar on
+
+--- Page 295 ---
+Instagr am. Años más tarde la venderían a Mark Zuckerberg por mil
+millones de dólar es. 
+Fogg ha dicho en alguna ocasión que si no hubier a dado aquel la
+clase, posiblemente Instagr am no hubiese existido . Por su aula
+pasar on Tristan Harris, Aksha y Kothari—r esponsable de LinkedIn
+India—, Ramit Sethi —autor de Te enseñar é a ser rico— y muchos
+otros. Se le empezó a conocer como el hombr e que creaba
+millonarios.
+LA HISTORIA DE TRISTAN HARRIS
+Fogg insistía en otras dos ideas: ayuda a que la gente consiga hacer
+lo que realmen te quiere e intenta que esa persona se sienta exitosa.
+Si lo analizas, LinkedIn e Instagr am lo intentan. En una ocasión Fogg
+acudió a visitar los cuarte les de Facebook, y al volver a la
+universidad pidió a sus alumnos que desarr ollaran aplicaciones
+nuevas para la empresa. En menos de tres meses sus pupilos habían
+conseguido captar para Facebook veinte millones de usuarios más y
+gener ar un mi llón de eur os en publ icidad.
+Durante las últimas clases a las que acudió Harris con Fogg, se
+habló de cómo  seguir empleando la persuasión en nuevos proyectos,
+como crear una aplicación que tuvier a perfiles de usuarios dentro de
+una red gigante para inducirles a pensar o compr ar lo que ellos
+quisier an. Tristan se mostr aba preocupado con los avances1,2,3 y por
+cómo se estaba fraguando un serio problema de distracciones a la
+sociedad.
+Harris es un apasionado de la magia. Uno de mis mejor es amigos,
+Mariano , es mago y siempr e cuenta que la magia consiste en
+manipular nuestr a atención, dónde miramos y a qué miramos. La
+magia, en el fondo, no deja de ser una habilidad inmensa para dirigir
+
+--- Page 296 ---
+nuestr a atenci ón a lo que los ilusionistas decidan. Mientr as nos
+enfocamos donde quieren, te hacen el truco por otro lado. Son
+expertos en manipular . 
+Tristan empezó a buscar maner as de conseguir preservar la
+atención y se le ocurrió crear Aptur e. Seguro que lo has empleado
+en alguna ocasión —es útil cuando estás leyendo una web y hay
+algo de lo que quieres saber más, entonces marcas la palabr a y sale
+una extensión de navegador donde ves los resultados, todo sin salir
+de la página en la que te encuentr as—. Google le propuso compr ar
+su diseño mientr as le ofrecían trabajar para ellos. Entrar en esta
+compañía fue muy importante para él, pues descubrió que manejaba
+el contenido de lo que miles, ¡millones! de personas leían y
+consul taban al día. 
+He escuchado decenas de interv enciones y leído mucho sobre
+Tristan Harris. Esa época en Google le marcó profundame nte. Había
+una palabr a que se repetía sin cesar: engagement,  la capacidad que
+tiene un producto , una aplicación o un influencer  para captar a las
+personas. Cuanto más engagement,  mejor. Por lo tanto, había que
+buscar todas las maner as posibles de conseguir que la gente se
+enganchar a a sus productos. Se empezó a pagar dinero a aquel los
+ingenier os, neurocientíficos y psicólogos que supier an cómo retener
+la atención de los usuarios el mayor tiempo posible en la pantal la.
+Así nacier on las vibraciones —cuando llega una notificación, un
+mail…—, las alertas sonor as, las iluminaciones fugaces de la pantal la
+o la misma linterna del móvil y tantas otras artimañas destinadas a
+atraer nuestr a atención, pero gener ando, paradójicamente,
+distracciones constantes. 
+Tristan Harris era consciente de que la atención se estaba
+perdiendo y de que las empresas tecnológicas lo sabían. La
+introducción de los filtros fue otro diseño de uno de sus compañer os.
+
+--- Page 297 ---
+Significaron otro punto de inflexión en el desarr ollo de las
+aplicaciones, ya que gracias a ellos somos capaces de cambiar
+saturación, intensidad, luz, nitidez en las imágenes, etc., para que
+las fotos —y, por supuesto , nosotr os y nuestr os cuerpos— luzcan
+mejor . Un buen amigo , cirujano plástico , me decía consternado tras
+escucharme en un podcast que en el último año había atendido a
+muchas chicas que acudían a su consul ta con una foto con filtro
+pidiéndole que las transformase en esa imagen que habían creado.
+Si nos pasamos el día viéndo nos con un filtro más guapos , delgados
+y jóvenes, nos va a resultar cada vez más compl icado aceptar
+nuestr as imperf ecciones. Hablar é de esto más adelante, pero tiene
+un impacto muy fuerte en la autoestima y en la percepción que
+tenemos de nosotr os mismos. 
+Tristan llegó a un punto en que supo que tenía que cambiar de
+bando . En el documental lo explica con detalle. Un día de 2016
+anunció su salida de Google, pero antes de partir hizo una
+presentación que distribuyó en la compañía para gener ar debate
+y diferentes opiniones. Esta se puede ver en
+http://www .minimiz edistr action.com; te la recomiendo . Mostró datos
+reales —por entonces ya preocupantes— sobre la distracción y la
+falta de atención que estaban provocando , pero, sobre todo enfatizó
+la gra vedad de que internamente se estuvier a trabajando para
+manipular de f orma consciente las mentes de los consumidor es. 
+En una de las páginas de la presentación señalaba que en 2016
+existían once billones de distracciones al día en el mundo . Ocho años
+más tarde estos númer os se han dispar ado exponencialmente.
+Propuso ciertas herramien tas para evitar las distracciones
+constantes, pero no fueron tenidas en cuenta. Él insistía en que se
+nos estaba arrebatando la capacidad de frenar y decidir a base de
+millones de distracciones. Había visto con sus propios ojos que la
+
+--- Page 298 ---
+finalidad de las compañías era enganchar y manipular las
+vulner abilidades psicológicas . ¿Cómo? Como si de una máquina
+tragaperr as se tratara. Te comparto algunas de las ideas de esa
+presentación, mostrándote la vulner abilidad que Harris percibía junto
+con alguna propuesta que él planteaba para evitar el daño (ver
+página siguiente). 
+Esta presentación causó un gran revuelo . Los jefes le pidier on que
+se trasladar a a un puesto de diseñador ético. Tristan estaba
+ilusionado; pensaba que desde su nueva posición podría gener ar un
+cambio en esos temas que se llevaban haciendo mal desde hacía
+tiempo . Durante meses intentó lanzar productos que frenaran las
+interrupciones, pero ninguno era aceptado porque iba en contra de
+los intereses económicos de la compañía.  Aguantó dos años en su
+puesto de «diseñador ético». Finalmente, se marchó y fundó en
+2018 el Center for Humane Technology , una organización  sin ánimo
+de lucro en la que busca humanizar el uso de los descu brimientos
+tecnológicos. 
+PREOCUPACIONES
+• Creación de un mundo distr aído.
+• Pérdida de hor as en los mails y apl icaciones.
+• La influencia  de las empresas tecnológicas: hacia dónde quieren
+dirigir la atención.
+• Destru cción de las habilidades de los jóvenes para enfocarse en el
+aquí y ahor a.
+• Potenciación de las vulner abilidades de los humanos.
+VULNERABILIDAD 1
+Los pr oductos r ecomendados nos hacen per der tiempo .
+
+--- Page 299 ---
+Diseñar productos para ayudar a los usuarios a prever las
+consecuencias de algunas de sus ac ciones.
+VULNERABILIDAD 2
+Las recompensas variables intermi tentes son las más difíciles de
+frenar (como las máquinas tr agaperr as).
+Diseñar productos para minimizar las recompensas variables
+intermi tentes y r educir las adic ciones.
+VULNERABILIDAD 3
+FOMO (miedo a per der inf ormación, noticias, etc. ).
+Diseñar productos que den confianza a los usuarios para que
+puedan desconectar con más facilidad sin perderse nada realmente
+importante.
+VULNERABILIDAD 4
+Falta de conciencia en la conducta.
+Ayudar a que los usuarios sean capaces de pensar y reflexionar
+antes de actuar por impulsos.
+VULNERABILIDAD 5
+Distraídos y estresados somos más propensos a sucumbir a
+impulsos inmediatos.
+Diseñar productos para minimizar el estrés y crear estados de
+calma.
+ 
+En 2019, el senador de Virginia, Mark R. Warner, y la senadora de
+Nebraska, Debra Fischer , presentar on una proposició n de ley
+
+--- Page 300 ---
+denominada Deceptiv e Experiences To Online Users Reduction
+(DETOUR Act) —que se podría traducir como Ley de reducción de
+experiencias engañosas— para frenar o prohibir la manipulación a
+través de las redes. Por medio de esta proposición de ley se buscaba
+que muchas de estas aplicaciones cambiar an su modelo de negocio ,
+dotando de más tr anspar encia al sistema. 
+Muchos ingenier os y especial istas fueron llamados para dar su
+opinión sobre el tema en el Senado de Estados Unidos. Tristan Harris
+acudió, explicó su experiencia y cómo trató de modificar algunas de
+estas prácticas desde su puesto de diseñador ético. Dijo que había
+fracasado , ya que las empresas tecnológicas no tenían los incentiv os
+adecuados para cambiar . Puso mucho énfasis en cómo se captaba la
+información personal de los usuarios y en cómo se empleaban
+múltiples técnicas y herramientas para llamar su atención y
+distraerlos constantemente. 
+Detrás de cada publicación
+y producto que llega a una
+pantalla hay cientos de
+ingenieros que trabajan
+para tener secuestrada
+nuestra atención. 
+EL SCROLL  INFINITO
+Hay otro personaje interesante en todo este proceso . Conocerle te
+ayudará a entender mejor los entresijos de la batalla digital y su
+
+--- Page 301 ---
+capacidad para enganchar . Su nombr e: Aza Raskin. Su padre, Jef
+Raskin, programador y filósofo, conoció a Steve Jobs en la primer a
+feria de informática de la Costa Oeste, en la presentación  del Apple
+II, y fue contratado por él para trabajar como mánager de
+publicaciones en su empresa. Su hijo, que vivió desde pequeño en
+este entorno , siguió de cer ca sus pasos. 
+A los treinta años, Aza diseñó una primer a versión de Firefox, más
+adelante montó otras compañías y desarr olló otros productos. En
+2006 inventó el scroll infinito, pero, poco a poco, se fue dando
+cuenta de que quería encauzar su camino para que la tecnología
+estuvier a enfocada en cosas buenas. Dos años después fundó, junto
+con su amigo Tristan Harris, el Center for Humane Technology . A su
+vez creó el Earth Species Project, cuyo objetiv o es mejor ar la vida de
+los animales en la Tierr a, investigando cómo comunicarse con el los. 
+¿Pero qué es el scroll infinito? Seguro que has usado esta  función
+en muchas ocasiones, en Instagr am, LinkedIn, Snapchat, TikTok o
+YouTube. Entras a mirar una publicación o porque estás aburrido o
+estresado . Consul tas algo, pero comienzas a arrastrar el dedo hacia
+abajo , surgen publicaciones diseñadas para ti según tus gustos y tu
+algori tmo. ¡Ya no te acuer das para qué entraste en la aplicación! De
+pronto, algo te saca de ese estado de desconexión de ti mismo y del
+entorno , pero para entonces  ¡has perdido quince minutos o más! A
+esto se le denomina scroll infinito. Se trata de mostr ar contenido sin
+que el usuario  tenga que hacer clic, sin que existan interrupciones,
+ya que no hay que esper ar a que se cargue la informaci ón. Lo que
+Aza diseñó para facilitar el acceso a la información se ha convertido
+en uno de los motiv os por los que las r edes son tan adictiv as. 
+En una entrevista a la BBC4 en el año 2018, analizó los efectos de
+su producto y explicó que empleándolo no se le daba tiempo al
+
+--- Page 302 ---
+cerebro a ponerse al día con los impulsos, razón por la cual se queda
+enganchado indefinidamente. 
+—Es como si la gente estuvier a tomando cocaína conductual. 
+Así es como el propio Aza describe su invento, ya que este nos
+impide parar el movimiento del dedo deslizando la pantal la. Bloquea
+que puedas pensar y que te plantees salir de la pantal la. Es más fácil
+secuestr ar nuestr os instintos, que los controlemos nosotr os. Si en
+vez de contar con el scroll infinito tuviér amos que recargar la página
+una y otra vez, en esas centé simas de segundo es más probable que
+el cerebro pudier a recuper ar el control de su tiempo . Cuando a
+Raskin le preguntar on por su opinión sobre su creación, su respuesta
+fue impactante: 
+—Con mi invento ha quedado demostr ado que hacer algo que
+facilite las cosas no significa necesariamente que sea bueno para la
+humanidad. No puedo controlar cómo van a ser utilizadas mis
+creaciones. Debería haber dedicado más tiempo a pensar en la
+filosofía y la responsabi lidad que conlleva el invento. Sería terrible
+llegar al final de mi vida y que en mi lápida pusier a algo así como:
+«Hizo el scroll».
+Me gustó mucho leer que Aza y yo compartimos un hábito en
+relación con cómo empleamo s las redes. En una entrevista realizada
+en 2021 a la revista GQ5 explicó algo que recomiendo desde hace
+años a mis pacientes y que yo misma intento llevar a cabo a mi vida
+personal-digi tal. Dijo que en los últimos tiempos había bajado mucho
+su consumo en redes. Un día, hablando con su amigo Tristan, este le
+preguntó qué sentía cuando  publicaba algo en redes y por qué lo
+hacía. Esta cuestión le hizo replantearse bastantes cosas. En mi
+caso, las redes son una herramienta, un altavoz, para que mi
+mensaje pueda  llegar y ayudar a más gente. Intento aportar ideas y
+
+--- Page 303 ---
+contenido a través de estos canales. No gobiernan mi vida; las utilizo
+siempr e que lo v eo con veniente.
+Ya sabes que al principio la mente gener a resistencia a  cualquier
+hábito, pero a medida que lo introduces en tu vida se transforma en
+una rutina vitamínica . Como usuario  de redes sociales, cada vez que
+vayas a publicar algo hazte estas preguntas. Lógicament e no hace
+falta que te hagas todas, solo aquel las que cr eas que te a yudan:
+— ¿Por qué quier o compartir esto ahor a mismo? 
+— ¿Qué quier o transmi tir a los que lo v ean? ¿Les aporta algo?
+— ¿Cuál es la r azón par a contestar a este tui t o imagen?
+— ¿Qué f aceta de mí está primando?
+— ¿Qué emoción es la más f uerte al quer er publ icar? 
+— ¿Este chispaz o de dopam ina lo necesi to porque me siento
+solo, estresado o necesi to validación?
+— ¿Esto y siendo la v ersión de mí mismo que más me gusta?
+Estas pregunta s pueden ser muy útiles porque uno de los efectos
+más buscados en las redes es la necesidad de validación. Si no
+tenemos cuidado , la tecno logía podría destrozar nuestro tejido
+social.
+
+--- Page 304 ---
+14. Cómo nos manipulan
+Ya te he habla do en el capítulo «La soledad y su influencia en la
+salud» de Vivek Murth y, toda una autoridad y un experto  en temas
+de salud en Estados Unidos. En mayo de 2023 presentó un
+documento6 donde compartía su preocupación por el uso excesivo
+de las redes entre los jóvenes. En él subrayó algo que ya sabemos:
+las plataf ormas están diseñadas para ser adictiv as. Insistía en que
+había que trabajar para proteger el correcto desarr ollo cerebral de
+los adolescentes. El doctor Murth y analizó las ventajas que
+aportaban: 
+— Nos conectan y nos acer can a las personas.
+— Nos sentimos parte de algo .
+— Son una vía de escape en momentos compl icados.
+— Apoyan a los grupos más discriminados, ya que la gente
+busca a otr os que se sientan como el los. 
+Pero expr esó también las desv entajas:
+— Incrementan la ansiedad.
+— Están relacionadas con conductas autolesiv as y trastornos
+alimenticios.
+— Influyen muy negativ amen te en la autoestima, sobre todo en
+niñas.
+
+--- Page 305 ---
+— Gener an problemas de sueño .
+— Activ an compar aciones constantes.
+NO OLVIDES
+Si te comparas, sales perdiendo, porque sueles infravalorar tus
+cualidades y sobrevalorar a la persona
+a la que observas.
+Expuso ci fras actual izadas en su país:
+— El 95 % de la población de entre trece y diecisiete años tiene
+acceso a las r edes.
+— El principal factor de riesgo es el tiempo de exposición. Los
+jóvenes pasan en torno a tres horas y media diarias
+enganchados al scroll o a las redes.  Un 25 % pasa cinco horas,
+y una séptima parte, más de siete. 
+— El 14 % de los adolescentes de entre trece y diecisiete  años
+cuenta que las redes le hacen sentir mejor . Un 46 % reconoce
+sentirse peor . 
+— El 64 % ha sido atacado o humi llado con mensajes de odio .
+— Un tercio de los adolescen tes usa pantal las hasta medianoche
+o más tar de.
+— El 33 % de las chicas de entre once y quince años admite
+estar enganchada a alguna r ed social.
+Me alegra saber que esta inquietud se ha convertido en una
+preocupación real de algunas Administr aciones Públicas, como
+vemos a continuación. 
+
+--- Page 306 ---
+LOS GOBIERNOS EMPIEZAN A ALZAR LA VOZ
+Desde diferentes instituciones ya se habla de gener ar entornos
+digitales sanos , saludables y segur os para los jóvenes, de maner a
+que si no se pueden eliminar los riesgos al menos se puedan advertir
+y regular mientr as se educa para confrontarlos. Al igual que se
+controla la venta de alcohol, tabaco , drogas o ciertos medicamentos,
+también el acceso a determinadas aplicaciones o contenidos digitales
+tiene que ser r estringido o contr olado . Es fundamental. 
+Asociaciones americanas, como la Academia Estadounid ense de
+Pediatr as o la de Médicos de Familia, expresan hoy también su
+inquietud, ya que las aplicaciones no tienen como prioridad
+potenciar el desarr ollo de los niños, sino favorecer sus
+vulner abilidades. Tres de cada cuatro padres en Estados Unidos
+consider a que cada vez es más compl icado educar a sus hijos y que
+las redes tienen gran parte de la culpa. El 80 % cree que la industria
+tecnológica debería proteger a los menor es de contenidos
+perjudiciales. Algunos piensan que son los padres quienes deberían
+encar garse de ayudar a sus hijos en la introducción a los
+disposi tivos. Yo soy madre de familia y estoy convencida de que si el
+sistema no ayuda un poco, es muy difícil poder consegu irlo. Es un
+símil distinto , pero si la comida que damos a nuestr os hijos tuvier a
+riesgo de enfermarles, necesi taríamos que nos alertar an, que nos
+avisaran o que esos productos no se comer cializaran. Del mismo
+modo que cada vez tenemos más información sobre los procesados,
+los fritos o el azúcar , conoc er estos temas ayudaría mucho a los
+padres a tomar decisiones al r especto . 
+El docto r Murth y y otros especial istas en diferentes lugares del
+planeta se empiezan a replantear cuál es la edad idónea para el
+inicio de las pantal las. Algunos opinan que no debería existir acceso
+a las redes sociales antes de los trece años. Otros creemos que esa
+
+--- Page 307 ---
+edad no deber ía ser antes de los dieciséis. Me dirás: «¡Pero eso es
+imposible!». Soy consciente de que una cosa es lo recom endable y
+otra lo factible  según las circunstancias. De la misma forma que un
+chico de dieciocho , que legalm ente puede conducir , lo normal es que
+no empiece a hacerlo con un Ferrari o un coche excesivamente
+potente, aquí también la introducción ha de ser progresiva. He
+hablado de esto con pediatr as, psicólogos, psiquiatr as, policías e
+incluso con ingenier os informáticos. No es una decisión fácil, ya que
+existe el miedo a la exclusión , a que los que no tengan móvil en el
+colegio pueden ser apartados por sus compañer os. Ningún padre
+quiere que su hijo sea el diferente o el raro, y la presión social es
+muy fuerte. Por eso los movimientos sociales, educativ os,
+divulgativ os y políticos son esenciales, entre todos  logramos
+proteger la salud mental y evitamos un comportamiento que se ha
+extendido y que tiene graves consecuencias: el ciberbul lying, el
+acoso en el entorno digi tal. 
+Pero no solo Estados Unidos ha mostr ado su preocupació n en los
+últimos tiempos por las técnicas que emplean las empresas para
+enganchar a los usuarios, también lo ha hecho la Unión Europea.
+Son conscientes de que los programas están explotando la
+vulner abilidad de los individuos en términos de atención y sistemas
+de recompens a. Desde Europa asoma este pensamiento que
+compartía antes: si el alcohol y las drogas están sujetas a
+normativ as, ¿cómo es posible que las redes, con su enorme
+potencial adictivo, no estén reguladas? Los eurodiputados a favor de
+que existan leyes sobre ellas afirman que el diseño puede causar
+daños físicos, psicológicos, pérdidas de concentr ación, capacidad
+cogni tiva, agotamiento , etc. De hecho , en octubr e de 2023 el
+Parlamento Europeo aprobó un proyecto en la Comisión de Mercado
+Interior y Protección del Consumidor (IMCO) —con treinta y ocho
+
+--- Page 308 ---
+votos a favor y una abstenció n— para investigar , examinar y prohibir
+el scroll infinito. Es más, en diciembr e aprobó una resolución para
+que tanto los servicios como los productos digitales fueran más
+éticos y a la vez su diseño fuera menos adictiv o. La Comisión está
+alarmada por el hecho de que uno de cada cuatro niños tenga
+rasgos adictiv os a las redes. Ha propuesto también una serie de
+ideas recomen dadas por expertos en la materia para ayudar a
+gestionar las distracciones y proteger la atención. Te comento solo
+tres:
+— Pensar antes de compartir . Esto lo sugirió en su momento
+Tristan Harris en Google, pero no tuvo aceptación. Significa que
+antes de compartir una publicación plantees a la persona si en
+realidad quier e publ icar eso y qué final idad tiene.
+— El derecho a no ser molestado . Ahora, continuamente,
+pueden llegarte notificaciones, mails, alertas … Sería como un
+derecho a preservar la calma, una especie de Lista Robinson
+pero en esta materia. R econoz co que me gusta mucho la idea. 
+— Cambiar las publicaciones . Otra suger encia que me ha
+parecido muy positiva: que a medida que transcurr en los
+minutos de conexión bajen la intensidad de los colores o pasen
+a escala de grises para que el usuario se dé cuenta que ha
+llegado el momento de dejar el disposi tivo. 
+También, de maner a individual, ciertos países de la Unión Europea
+han empezado  a mover ficha, y es Italia uno de los más rigurosos en
+cuanto al material que considera puede ser perjudicial para los
+menor es de edad. No permite que tengan acceso a contenidos
+inapropiados —pornogr afía, apuestas, violencia…— y a este fin ha
+bloqueado las tarjetas SIM de móviles y de otros disposi tivos de los
+
+--- Page 309 ---
+que no han cumplido los dieciocho . Las teleoper adoras se encar gan
+de ello. 
+No todos los investigador es creen que esto vaya a ser una
+garantía total, entre ellos el pedagogo Cosimo di Bari. Sospecha que
+los jóvenes encontr arán maneras de saltarse este sistema. Y en el
+caso de que la herramienta funcione, puede que se les aísle
+demasiado de los peligros reales que hay en el mundo , idea que yo,
+personalmente, no comparto . Quizá lo preferible sería enseñarles a
+autorr egularse, que compr endan los límites de los contenidos y el
+tiempo que deberían estar delante de la pantal la, pero que haya un
+mínimo de r egulación par a el ac ceso me par ece fundamental. 
+Existen planteamientos que consider an que, en aras de la libertad
+no debería haber restric ciones —alegando la conveniencia de un
+consumo responsable y con la excusa de las dificultades técnicas y/o
+para evitar la sobreprotección—. El problema es que pretender que
+los menores se autorr egulen  en el entorno digital, con lo adictiv o
+que está demostr ando ser, es como sumer girles en un ecosistema
+plagado de alcohol, drogas y contenido explíci to accesibles al
+instante y gratuitos y esper ar que no desarr ollen adicciones. Claro
+que lo ideal sería que su autocontr ol fuera lo suficientemente
+madur o para mantenerles alejados de ello, pero precisamente
+porque son menor es no tienen la madur ez necesaria. 
+DEMANDA A META
+En 2021, The Wall Street Journal  publicó un reportaje sobre cómo
+Instagr am distorsionaba la maner a en la que las niñas percibían su
+cuerpo . Insistía en que la empresa conocía el daño que esto
+producía en el cerebro de las jóvenes y no lo frenaba. El fiscal
+gener al de California, Rob Bonta, apuntaba en su investigación que
+
+--- Page 310 ---
+Meta —propietaria de la firma y de Facebook o WhatsApp , entre
+otras— había engañado a los consumidor es y estaba poniendo en
+peligro a los adolescentes. La portavoz de la compañía, Nkechi Nneji,
+explicó tras la denuncia que la finalidad de Meta era siempr e aportar
+a los usuarios una experien cia saludable y segur a. Desde que se
+reveló la información, algun os Estados americanos han aprobado
+una ley que restringe el acceso de los menor es a las redes sin el
+consentimiento de los padr es. 
+A principios de ese mismo año, Instagram avisó de que iba a lanzar la versión
+infantil. La noticia generó una gran inquietud y varios fiscales gener ales escribieron
+una carta abierta a Mark Zuckerberg en la que terminaban diciendo: «En resumen:
+una plataforma para niños pequeños es dañina por innumer ables razones. Los
+fiscales gener ales instan a Facebook a que abandone sus planes de lanzar esta
+nueva plataf orma».
+Dos años después, en enero de 2023, un centenar de escuelas de
+Seattle —sede de Amaz on y Microsoft—, con unos cincuenta mil
+estudiantes, presentar on una denuncia contra las grandes  empresas
+tecnológicas por el daño infringido en la salud mental de los jóvenes,
+argumentando que había impactado en la labor educativ a al
+absorber los recursos de los colegios. Las instituciones observ an
+preocupadas cómo las redes modifican los sistemas de recompensa
+de los alumnos a través de las aplicaciones y las secuelas que esto
+tiene en el bienestar emocional y en el apr endizaje.  
+Ese mismo año, nueve meses más tarde, cuarenta y un fiscales
+gener ales del país pusier on una demanda a Meta por desarr ollar
+productos y aplicaciones con fines adictiv os a pesar de que la
+compañía había negado que esto fuera así, insistiendo en su
+mensaje de que ellos trabajaban arduamente en la seguridad del
+contenido . Pero el escrito insistía en los peligros y riesgos de sus
+

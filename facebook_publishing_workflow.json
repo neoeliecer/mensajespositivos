@@ -1,0 +1,151 @@
+{
+    "nodes": [
+        {
+            "parameters": {},
+            "name": "Start",
+            "type": "n8n-nodes-base.start",
+            "typeVersion": 1,
+            "position": [
+                250,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "filePath": "C:/Users/neo/Documents/agente/mensajes positivos/content_calendar.csv"
+            },
+            "name": "Read CSV",
+            "type": "n8n-nodes-base.readBinaryFile",
+            "typeVersion": 1,
+            "position": [
+                450,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "fileFormat": "csv",
+                "options": {
+                    "headerRow": true
+                }
+            },
+            "name": "Parse CSV",
+            "type": "n8n-nodes-base.spreadsheetFile",
+            "typeVersion": 1,
+            "position": [
+                650,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "conditions": {
+                    "string": [
+                        {
+                            "value1": "={{$node[\"Parse CSV\"].json[\"Status\"]}}",
+                            "value2": "Ready for Video"
+                        },
+                        {
+                            "value1": "={{$node[\"Parse CSV\"].json[\"Video_Path\"]}}",
+                            "operation": "isNotEmpty"
+                        }
+                    ]
+                }
+            },
+            "name": "Filter Ready Posts",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 1,
+            "position": [
+                850,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "authentication": "oAuth2",
+                "resource": "video",
+                "message": "={{$node[\"Parse CSV\"].json[\"Facebook_Post_Text\"]}}",
+                "binaryData": true,
+                "binaryPropertyName": "video_data"
+            },
+            "name": "Facebook Video Post",
+            "type": "n8n-nodes-base.facebookGraphApi",
+            "typeVersion": 1,
+            "position": [
+                1250,
+                200
+            ],
+            "notes": "Configure credentials here"
+        },
+        {
+            "parameters": {
+                "filePath": "={{$node[\"Parse CSV\"].json[\"Video_Path\"]}}",
+                "binaryPropertyName": "video_data"
+            },
+            "name": "Read Video File",
+            "type": "n8n-nodes-base.readBinaryFile",
+            "typeVersion": 1,
+            "position": [
+                1050,
+                200
+            ]
+        }
+    ],
+    "connections": {
+        "Start": {
+            "main": [
+                [
+                    {
+                        "node": "Read CSV",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Read CSV": {
+            "main": [
+                [
+                    {
+                        "node": "Parse CSV",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Parse CSV": {
+            "main": [
+                [
+                    {
+                        "node": "Filter Ready Posts",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Filter Ready Posts": {
+            "main": [
+                [
+                    {
+                        "node": "Read Video File",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Read Video File": {
+            "main": [
+                [
+                    {
+                        "node": "Facebook Video Post",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    }
+}

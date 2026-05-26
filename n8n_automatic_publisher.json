@@ -1,0 +1,143 @@
+{
+  "name": "Publicador Inteligente (ASAP vs 7AM)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "interval": 1
+            }
+          ]
+        }
+      },
+      "name": "Cada hora",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [400, 300]
+    },
+    {
+      "parameters": {
+        "filePath": "/home/neo/.n8n-files/content_calendar.csv",
+        "options": {}
+      },
+      "name": "Leer Calendario",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "typeVersion": 1,
+      "position": [600, 300]
+    },
+    {
+      "parameters": {
+        "options": {
+          "headerRow": true,
+          "readAsString": true
+        }
+      },
+      "name": "Procesar CSV",
+      "type": "n8n-nodes-base.spreadsheetFile",
+      "typeVersion": 1,
+      "position": [800, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json[\"Estado\"].trim()}}",
+              "value2": "Ready"
+            }
+          ]
+        }
+      },
+      "name": "¿Está Listo?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1000, 300]
+    },
+    {
+      "parameters": {
+        "values": [
+          {
+            "name": "isFuture",
+            "type": "boolean",
+            "value": "={{$json[\"Fecha_Publicacion\"] > $now.format('yyyy-MM-dd')}}"
+          },
+          {
+            "name": "scheduleTime",
+            "type": "string",
+            "value": "={{Math.floor(new Date($json[\"Fecha_Publicacion\"] + 'T07:00:00-04:00').getTime() / 1000)}}"
+          }
+        ],
+        "options": {}
+      },
+      "name": "Calcular Tiempos",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [1200, 200]
+    },
+    {
+      "parameters": {
+        "filePath": "={{$json[\"Ruta_Video\"].trim()}}",
+        "binaryPropertyName": "data"
+      },
+      "name": "Leer Video",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "typeVersion": 1,
+      "position": [1400, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph-video.facebook.com/v21.0/me/videos",
+        "authentication": "none",
+        "sendQueryParameters": true,
+        "queryParametersUi": {
+          "parameter": [
+            {
+              "name": "access_token",
+              "value": "EAASB6JZCpunkBRCl3EGQa1uOgZAS1G4NZBXuIZCtzXcU1fOXVM7zbEizB7TNGWixQ1JyuUZBRXXxRWbmsrHwpGsyJuFLNXBc5AmZCzoCPIdMIAZC66mVbxrbVHtEzw5yp2kgywd2Jw7ZAYkQghX23oplBdApkKtR3buAd0hmAdpAvGWV5lcy1yq9ADh4xncpSVVZBzAZDZD"
+            }
+          ]
+        },
+        "sendBinaryData": true,
+        "binaryPropertyName": "data",
+        "sendBody": true,
+        "bodyContentType": "multipart-form-data",
+        "specifyBody": "keypair",
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "description",
+              "value": "={{$node[\"Procesar CSV\"].json[\"Texto_Post\"]}}"
+            },
+            {
+              "name": "title",
+              "value": "={{$node[\"Procesar CSV\"].json[\"Titulo\"]}}"
+            },
+            {
+              "name": "published",
+              "value": "={{$node[\"Calcular Tiempos\"].json[\"isFuture\"] ? 'false' : 'true'}}"
+            },
+            {
+              "name": "scheduled_publish_time",
+              "value": "={{$node[\"Calcular Tiempos\"].json[\"isFuture\"] ? $node[\"Calcular Tiempos\"].json[\"scheduleTime\"] : ''}}"
+            }
+          ]
+        }
+      },
+      "name": "Publicar/Programar",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [1600, 200]
+    }
+  ],
+  "connections": {
+    "Cada hora": { "main": [[{ "node": "Leer Calendario", "type": "main", "index": 0 }]] },
+    "Leer Calendario": { "main": [[{ "node": "Procesar CSV", "type": "main", "index": 0 }]] },
+    "Procesar CSV": { "main": [[{ "node": "¿Está Listo?", "type": "main", "index": 0 }]] },
+    "¿Está Listo?": { "main": [[{ "node": "Calcular Tiempos", "type": "main", "index": 0 }]] },
+    "Calcular Tiempos": { "main": [[{ "node": "Leer Video", "type": "main", "index": 0 }]] },
+    "Leer Video": { "main": [[{ "node": "Publicar/Programar", "type": "main", "index": 0 }]] }
+  }
+}

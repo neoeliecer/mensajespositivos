@@ -1,0 +1,19 @@
+import PyPDF2
+import sys
+
+if sys.platform == "win32":
+    import codecs
+    sys.stdout = codecs.getwriter('utf-8')(sys.stdout.detach())
+
+pdf_path = r"C:\Users\neo\Documents\libros\Hágase-la-Luz-Barbara-Ann-Brennan.pdf"
+
+try:
+    with open(pdf_path, 'rb') as file:
+        reader = PyPDF2.PdfReader(file)
+        for i in range(13, 30):
+            page_text = reader.pages[i].extract_text()
+            if page_text and "2" in page_text:
+                print(f"\n--- PÁGINA {i+1} ---")
+                print(page_text[:1000])
+except Exception as e:
+    print(f"Error: {e}")

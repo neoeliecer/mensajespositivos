@@ -1,0 +1,336 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------
+   DESIGN SYSTEM - THEME VARIABLES (PREMIUM DARK THEME)
+   ---------------------------------------------------- */
+:root {
+  --font-sans: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Color Palette - Vibrant Dark Mode */
+  --bg-main: #090614;
+  --bg-sidebar: #0f0b22;
+  --bg-card: rgba(19, 15, 37, 0.65);
+  --bg-card-hover: rgba(29, 23, 56, 0.85);
+  --border-glow: rgba(140, 82, 255, 0.18);
+  --border-glow-focus: rgba(140, 82, 255, 0.4);
+  
+  /* Brand Colors */
+  --primary: #8c52ff;
+  --primary-hover: #a373ff;
+  --primary-glow: rgba(140, 82, 255, 0.35);
+  --secondary: #d4af37; /* Warm Gold */
+  
+  /* Semantic Colors */
+  --text-primary: #f3effc;
+  --text-secondary: #a39cb5;
+  --text-muted: #6e6782;
+  
+  --success: #00e676; /* Glowing Emerald */
+  --success-bg: rgba(0, 230, 118, 0.12);
+  --warning: #ffd600; /* Amber Warning */
+  --warning-bg: rgba(255, 214, 0, 0.12);
+  --danger: #ff5252; /* Rose Danger */
+  --danger-bg: rgba(255, 82, 82, 0.12);
+  
+  /* Layout Dimensions */
+  --sidebar-width: 260px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --blur-amount: blur(16px);
+}
+
+/* ----------------------------------------------------
+   BASE ELEMENTS
+   ---------------------------------------------------- */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Glowing Background Gradients */
+body::before {
+  content: "";
+  position: fixed;
+  top: -10%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(140, 82, 255, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -10%;
+  left: -10%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* ----------------------------------------------------
+   UTILITY & STRUCTURAL STYLES
+   ---------------------------------------------------- */
+.glass-container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--blur-amount);
+  -webkit-backdrop-filter: var(--blur-amount);
+  border: 1px solid var(--border-glow);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: rgba(140, 82, 255, 0.28);
+  box-shadow: 0 12px 40px 0 rgba(140, 82, 255, 0.08);
+}
+
+/* Sidebar Navigation */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-glow);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.main-content {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Badge Tags for Publication States */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.badge-draft {
+  color: var(--text-muted);
+  background-color: rgba(110, 103, 130, 0.12);
+  border: 1px solid rgba(110, 103, 130, 0.25);
+}
+
+.badge-pendiente {
+  color: var(--warning);
+  background-color: var(--warning-bg);
+  border: 1px solid rgba(255, 214, 0, 0.25);
+}
+
+.badge-publicado {
+  color: var(--success);
+  background-color: var(--success-bg);
+  border: 1px solid rgba(0, 230, 118, 0.25);
+}
+
+/* Interactive Table Styling */
+.calendar-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.calendar-table th {
+  padding: 12px 16px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--border-glow);
+}
+
+.calendar-table tr {
+  transition: var(--transition-smooth);
+}
+
+.calendar-table tbody tr {
+  background: var(--bg-card);
+  border-radius: 8px;
+}
+
+.calendar-table tbody tr:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.calendar-table td {
+  padding: 16px;
+  border-top: 1px solid var(--border-glow);
+  border-bottom: 1px solid var(--border-glow);
+}
+
+.calendar-table td:first-child {
+  border-left: 1px solid var(--border-glow);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.calendar-table td:last-child {
+  border-right: 1px solid var(--border-glow);
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Form Controls & Inputs */
+.form-input {
+  background: rgba(15, 11, 34, 0.7);
+  border: 1px solid var(--border-glow);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 10px 14px;
+  transition: var(--transition-smooth);
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-glow);
+}
+
+/* Buttons with Micro-Animations */
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 14px 0 var(--primary-glow);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px 0 var(--primary-glow);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: rgba(140, 82, 255, 0.08);
+  color: var(--text-primary);
+  border: 1px solid rgba(140, 82, 255, 0.25);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+  background: rgba(140, 82, 255, 0.15);
+  border-color: var(--primary);
+}
+
+/* Chat UI Bubbles */
+.chat-bubble-user {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 16px 16px 2px 16px;
+  padding: 14px 18px;
+  max-width: 80%;
+  margin-left: auto;
+  box-shadow: 0 4px 12px 0 var(--primary-glow);
+}
+
+.chat-bubble-agent {
+  background: rgba(19, 15, 37, 0.85);
+  border: 1px solid var(--border-glow);
+  color: var(--text-primary);
+  border-radius: 16px 16px 16px 2px;
+  padding: 14px 18px;
+  max-width: 80%;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Markdown Renderer Text Styling inside scripts */
+.markdown-body {
+  line-height: 1.625;
+  color: var(--text-primary);
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  color: var(--text-primary);
+  margin-top: 24px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.markdown-body p {
+  margin-bottom: 14px;
+  color: var(--text-secondary);
+}
+
+.markdown-body blockquote {
+  border-left: 4px solid var(--primary);
+  padding-left: 16px;
+  margin: 16px 0;
+  color: var(--text-primary);
+  background: rgba(140, 82, 255, 0.03);
+  border-radius: 0 8px 8px 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-style: italic;
+}

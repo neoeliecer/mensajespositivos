@@ -1,0 +1,115 @@
+# Task Checklist: Reflective Script Generation
+
+- [ ] Import Book Content <!-- id: 0 -->
+    - [x] Receive PDF or text file from user <!-- id: 1 -->
+    - [x] Verify readability of the file <!-- id: 2 -->
+- [ ] Chapter Processing <!-- id: 3 -->
+    - [x] Analyze Chapter 1 <!-- id: 4 -->
+    - [x] Generate Script for Chapter 1 <!-- id: 5 -->
+    - [x] Generate Facebook Post for Chapter 1 <!-- id: 7 -->
+    - [x] Generate Cover Image for Chapter 1 <!-- id: 8 -->
+    - [x] Analyze Chapter 2 <!-- id: chapter_2_analysis -->
+    - [x] Generate Script for Chapter 2 <!-- id: chapter_2_script -->
+    - [x] Generate Facebook Post for Chapter 2 <!-- id: chapter_2_face -->
+    - [x] Generate Cover Image for Chapter 2 <!-- id: chapter_2_cover -->
+    - [x] Analyze Chapter 3 <!-- id: chapter_3_analysis -->
+    - [x] Generate Script for Chapter 3 <!-- id: chapter_3_script -->
+    - [x] Generate Facebook Post for Chapter 3 <!-- id: chapter_3_face -->
+    - [x] Generate Cover Image for Chapter 3 <!-- id: chapter_3_cover -->
+    - [x] Analyze Chapter 4 (Sugar) <!-- id: chapter_4_analysis -->
+    - [x] Generate Script for Chapter 4 <!-- id: chapter_4_script -->
+    - [x] Generate Facebook Post for Chapter 4 <!-- id: chapter_4_face -->
+    - [x] Generate Cover Image for Chapter 4 <!-- id: chapter_4_cover -->
+    - [x] Analyze Chapter 5 (Battery) <!-- id: chapter_5_analysis -->
+    - [x] Generate Script for Chapter 5 <!-- id: chapter_5_script -->
+    - [x] Generate Facebook Post for Chapter 5 <!-- id: chapter_5_face -->
+    - [x] Generate Cover Image for Chapter 5 <!-- id: chapter_5_cover -->
+    - [x] Analyze Chapter 6 (Teen Brain) <!-- id: chapter_6_analysis -->
+    - [x] Generate Script for Chapter 6 <!-- id: chapter_6_script -->
+    - [x] Generate Facebook Post for Chapter 6 <!-- id: chapter_6_face -->
+    - [x] Generate Cover Image for Chapter 6 <!-- id: chapter_6_cover -->
+    - [x] Analyze Chapter 7 (Fear) <!-- id: chapter_7_analysis -->
+    - [x] Generate Script for Chapter 7 <!-- id: chapter_7_script -->
+    - [x] Generate Facebook Post for Chapter 7 <!-- id: chapter_7_face -->
+    - [x] Generate Cover Image for Chapter 7 <!-- id: chapter_7_cover -->
+    - [x] Analyze Chapter 8 (Loneliness) <!-- id: chapter_8_analysis -->
+    - [x] Generate Script for Chapter 8 <!-- id: chapter_8_script -->
+    - [x] Generate Facebook Post for Chapter 8 <!-- id: chapter_8_face -->
+    - [x] Generate Cover Image for Chapter 8 <!-- id: chapter_8_cover -->
+    - [x] Analyze Chapter 9 (Sleep) <!-- id: chapter_9_analysis -->
+    - [x] Generate Script for Chapter 9 <!-- id: chapter_9_script -->
+    - [x] Generate Facebook Post for Chapter 9 <!-- id: chapter_9_face -->
+    - [x] Generate Cover Image for Chapter 9 <!-- id: chapter_9_cover -->
+    - [x] Analyze Chapter 10 (Inflamed Brain) <!-- id: chapter_10_analysis -->
+    - [x] Generate Script for Chapter 10 <!-- id: chapter_10_script -->
+    - [x] Generate Facebook Post for Chapter 10 <!-- id: chapter_10_face -->
+    - [x] Generate Cover Image for Chapter 10 <!-- id: chapter_10_cover -->
+    - [x] Generate Audio for Chapter 10 <!-- id: chapter_10_audio -->
+    - [x] Analyze Chapter 11 (More Screen, Less CPF) <!-- id: chapter_11_analysis -->
+    - [x] Generate Script for Chapter 11 <!-- id: chapter_11_script -->
+    - [x] Generate Facebook Post for Chapter 11 <!-- id: chapter_11_face -->
+    - [x] Generate Cover Image for Chapter 11 <!-- id: chapter_11_cover -->
+    - [x] Generate Audio for Chapter 11 <!-- id: chapter_11_audio -->
+    - [x] Analyze Chapter 12 (When the Brain Does Not Think) <!-- id: chapter_12_analysis -->
+    - [x] Generate Script for Chapter 12 <!-- id: chapter_12_script -->
+    - [x] Generate Facebook Post for Chapter 12 <!-- id: chapter_12_face -->
+    - [x] Generate Cover Image for Chapter 12 <!-- id: chapter_12_cover -->
+    - [x] Generate Audio for Chapter 12 <!-- id: chapter_12_audio -->
+    - [x] Analyze Chapter 13 (The Hidden Face of Social Networks) <!-- id: chapter_13_analysis -->
+    - [x] Generate Script for Chapter 13 <!-- id: chapter_13_script -->
+    - [x] Generate Facebook Post for Chapter 13 <!-- id: chapter_13_face -->
+    - [ ] Generate Cover Image for Chapter 13 <!-- id: chapter_13_cover -->
+    - [x] Generate Audio for Chapter 13 (Skipped) <!-- id: chapter_13_audio -->
+    - [x] Create `content_calendar.csv` for n8n/automation <!-- id: csv_calendar -->
+    - [x] Create `facebook_publishing_workflow.json` for n8n <!-- id: n8n_workflow -->
+    - [ ] (Run automation for Chapter 13) <!-- id: run_automation -->
+    - [ ] (Iterate for subsequent chapters) <!-- id: 6 -->
+
+- [ ] Chapter 2 Video Automation <!-- id: 9 -->
+    - [x] Install dependencies (edge-tts, moviepy) <!-- id: 10 -->
+    - [x] Generate Voice Options for selection <!-- id: 11 --> 
+    - [x] Generate Scene Images (x4) <!-- id: 12 -->
+    - [ ] Create Video Assembly Script <!-- id: 13 -->
+    - [ ] Generate Final Video <!-- id: 14 -->
+
+- [x] Chapter 14 (Music Healing) Content Generation <!-- id: 31 -->
+    - [x] Research Themes <!-- id: 32 -->
+    - [x] Generate Voiceover Script <!-- id: 33 -->
+    - [x] Generate Facebook Post <!-- id: 34 -->
+    - [x] Generate Cover Image <!-- id: 35 -->
+    - [x] Generate Audio <!-- id: 36 -->
+
+- [ ] Respira (James Nestor) Processing <!-- id: respira_processing -->
+    - [x] Chapter 1: Extracted & Generated <!-- id: respira_ch1 -->
+    - [x] Chapter 2: Extracted & Generated <!-- id: respira_ch2 -->
+    - [x] Chapter 3: Extracted & Generated <!-- id: respira_ch3 -->
+    - [x] Chapter 4: Extracted & Generated <!-- id: respira_ch4 -->
+    - [x] Chapter 5: Extracted & Generated <!-- id: respira_ch5 -->
+    - [x] Chapter 6 (Menos): Extracted & Generated <!-- id: respira_ch6 -->
+    - [x] Chapter 7 (Masticar): Extracted & Generated <!-- id: respira_ch7 -->
+    - [x] Chapter 8 (Mas): Extracted & Generated <!-- id: respira_ch8 -->
+
+- [ ] Setup Remotion Video Generator <!-- id: 21 -->
+    - [ ] Create `video-generator` subfolder <!-- id: 22 -->
+    - [ ] Initialize Remotion project <!-- id: 23 -->
+    - [ ] Verify installation <!-- id: 24 -->
+
+- [ ] Chapter 15 Content Generation <!-- id: 15 -->
+    - [ ] Extract Text <!-- id: 16 -->
+    - [ ] Generate Voiceover Script <!-- id: 17 -->
+    - [ ] Generate Facebook Post <!-- id: 18 -->
+    - [ ] Generate Cover Image <!-- id: 19 -->
+    - [ ] Generate Audio <!-- id: 20 -->
+
+- [ ] Chapter 11 (Music Healing) Content Generation <!-- id: 25 -->
+    - [x] Research Themes <!-- id: 26 -->
+    - [x] Generate Voiceover Script <!-- id: 27 -->
+    - [x] Generate Facebook Post <!-- id: 28 -->
+    - [x] Generate Cover Image <!-- id: 29 -->
+    - [ ] Generate Audio <!-- id: 30 -->
+
+- [ ] Confiar (Brian Tracy) Processing <!-- id: confiar_processing -->
+    - [x] Chapter 1: Extracted, Generated & Extended Script Created <!-- id: confiar_ch1 -->
+    - [x] Chapter 2: Extracted, Generated, Extended Script & Calendar Updated <!-- id: confiar_ch2 -->
+
+

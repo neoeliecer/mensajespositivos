@@ -1,0 +1,15 @@
+import re
+
+with open('luz_full_text.txt', 'r', encoding='utf-8') as f:
+    content = f.read()
+
+start_match = re.search(r'Cap.tulo 11\s*\nLA CURACI.N', content, re.IGNORECASE)
+end_match = re.search(r'Cap.tulo 12\s*\nCURACI.N', content, re.IGNORECASE)
+
+if start_match and end_match:
+    chap_text = content[start_match.start():end_match.start()]
+    with open('extracto_luz_cap11.txt', 'w', encoding='utf-8') as out:
+        out.write(chap_text.strip())
+    print("Chapter 11 extracted successfully.")
+else:
+    print("Could not find boundaries")

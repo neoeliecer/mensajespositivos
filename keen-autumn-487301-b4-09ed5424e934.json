@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "keen-autumn-487301-b4",
+  "private_key_id": "09ed5424e9341409b27dddb60f68ac79a2f715a3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDLwZPoAwXmoWc1\nu8aSu6nTx5yZ8n8j7gh0IPvHSZAwW1ygmO+WshPQsUSuwA/abwbcNIRdMCJREpQM\nxVGQZSAjk5N6iob5bpIm4A7+czlnUMeckUtbIQDr7kcWyZua/IWUO4OMwFyq1zrR\nUY0QORPhaMjpO6RDr54pj5Yjr4dlDuXZqzjWHC8zkt8eKs1v4EeaRN8H6+huYg8+\ngnMs0omQCJ2YPfuxtfXyd74sBPtHvFjne8TR0k6xeZbtVfQkGPTJ4/Gpu5W5hSm6\nfMV1hYPOsM6dedFPkAg3ILQcnHCdCf3U7oLQJAUsOESode+JihSuzfChISzgIeJ/\nB5TSPn8zAgMBAAECggEAANe5EWbeMOOxuJ4/WHtDL9r5sthuCM6dMKZjcpzSWcdv\na6xCK0miY3ZtPUBni1xKTnGKffi4L7EPkPsNf5jZlkFpsjNHfA5Jdjcv/HO50NWW\nv/IEAJI5r1u2vbVTjBtPDc3J6YJDzQXcTUt4ZmjVtSKcS6wNBbnvIU3aTk2N/Rub\nV9tByAWHwcA32P15QjvEZ/fF17Q0DnX+3iYfoOmkSpCFHlMGSUdGIyBxh3wFuRUm\n2ls7q3y5Wj/eU+ILOhow6KyY9OCxBHckZeE4E/zWtSDsL3DSSGayNQgPxVv6xYiY\nVV3nQgbmy2KffvaiAhVN2L+Hh6oGs5NmVaczhvZIOQKBgQDtz1V6tJqWJlu/MNIf\nXMWc7tNtzPY6f/Z7/sslkvINahOciQf74AYKdG/G76vzoEq1Rj932UbYpvtrREmZ\n1X6hVX+d6+HeJmCUkbnfbOI7BXtFHES5bATlBhj9cY31GihTj7WLJ+bIY4ppq9hJ\ncpQZ/3Cmfl3qu6EcdnuCyfwjxQKBgQDbV2v+aNQESzmUBD+SoIQNPeoTEc1doalq\n2alKQHeLRPPNrylZAJseUj0gu5OnLXX1p+VARWtG29+TsuuZMSs7unStUVw25hc6\nsADQMFSVxFE+Hn19QpH9R4THkXT+8YsP7MUvD3KrUT03/sWo+BuyQpNPAkWuhr90\nkfVaKTgulwKBgAEiwVzBqg9XhY6nNAm0TrlOJrJajT6AR/QVpnC6f+9ydz+DJAee\n7Uh1f+cqU97pABJXkIwI/J6iRYcgn11duKoal25wpvaBpmpvO70GbxorD4in9ugP\nzQIvAkWLmkr2YgTsJcjRWvfQCeQxTuoi4vQw1R/mcJpjZQSWyEY6orqlAoGBAIip\nSncj112phQFtODLiYgRiHDKvd9YrwIP7g9fonNMgLgtsZIW4s+1Lbhyz4oZZ89IQ\nPu0xk2p92iqLYvF6yiYXwVSviZYG/FgriwYr5re9rqTWmHdv/8fgRKGXRl8GHg/Z\nBO6SYG7PWiZGTd8+XvtNMb0bfFEGUcmOm2EGp6OXAoGASVhqNpWAcxLKjGHn/R9u\n5K4gpuYbgmu4DBFQW6PG3++rmL/4K7/21hRN1AM4hCpfvwSJD9dNEJ7IrJwz8wZP\nOhQ0f3yySQE/w1WOZI/cIW4f7BOdOksUeHmFIT0aiXS6QG3se/rzN0qv7Fa+Kuu5\nigfL/rMzKs3LG/5e95WwlR0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "n8n-bot@keen-autumn-487301-b4.iam.gserviceaccount.com",
+  "client_id": "112535302629262368124",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/n8n-bot%40keen-autumn-487301-b4.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
