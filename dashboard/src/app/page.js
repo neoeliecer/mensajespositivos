@@ -90,7 +90,9 @@ export default function Dashboard() {
   const [detailContent, setDetailContent] = useState({
     script: '',
     post: '',
+    post_instagram: '',
     resumen: '',
+    titles: '',
     coverExists: false,
     coverPath: ''
   });
@@ -99,10 +101,12 @@ export default function Dashboard() {
     Titulo: '',
     Fecha_Publicacion: '',
     Estado: '',
-    Texto_Post: ''
+    Texto_Post: '',
+    Texto_Post_Instagram: ''
   });
   const [savingRow, setSavingRow] = useState(false);
-  const [copySuccess, setCopySuccess] = useState(false);
+  const [copySuccessFb, setCopySuccessFb] = useState(false);
+  const [copySuccessIg, setCopySuccessIg] = useState(false);
   
   // Chat State
   const [chatMessages, setChatMessages] = useState([
@@ -144,16 +148,18 @@ export default function Dashboard() {
     try {
       setLoadingContent(true);
       setSelectedRow(row);
-      setEditFields({
-        Titulo: row.Titulo || '',
-        Fecha_Publicacion: row.Fecha_Publicacion || '',
-        Estado: row.Estado || 'Draft',
-        Texto_Post: row.Texto_Post || ''
-      });
       
       const res = await fetch(`/api/content?series=${encodeURIComponent(row.Libro)}&chapter=${encodeURIComponent(row.Capitulo)}`);
       const data = await res.json();
       setDetailContent(data);
+      
+      setEditFields({
+        Titulo: row.Titulo || '',
+        Fecha_Publicacion: row.Fecha_Publicacion || '',
+        Estado: row.Estado || 'Draft',
+        Texto_Post: row.Texto_Post || data.post || '',
+        Texto_Post_Instagram: row.Texto_Post_Instagram || data.post_instagram || ''
+      });
     } catch (err) {
       console.error('Error loading content', err);
     } finally {
@@ -195,10 +201,16 @@ export default function Dashboard() {
   };
 
   // Copy to Clipboard Utility
-  const copyToClipboard = (text) => {
+  const copyToClipboardFb = (text) => {
     navigator.clipboard.writeText(text);
-    setCopySuccess(true);
-    setTimeout(() => setCopySuccess(false), 2000);
+    setCopySuccessFb(true);
+    setTimeout(() => setCopySuccessFb(false), 2000);
+  };
+
+  const copyToClipboardIg = (text) => {
+    navigator.clipboard.writeText(text);
+    setCopySuccessIg(true);
+    setTimeout(() => setCopySuccessIg(false), 2000);
   };
 
   // Send Message to Agent Chat
@@ -669,15 +681,15 @@ export default function Dashboard() {
                             <h4 className="text-xs font-bold text-purple-300 uppercase tracking-wider">📱 Post de Facebook Listo</h4>
                             
                             <button 
-                              onClick={() => copyToClipboard(editFields.Texto_Post || detailContent.post)}
+                              onClick={() => copyToClipboardFb(editFields.Texto_Post || detailContent.post)}
                               className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
-                                copySuccess 
+                                copySuccessFb 
                                   ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 animate-pulse'
                                   : 'bg-purple-600/10 text-purple-300 hover:bg-purple-600/20 border border-purple-500/20'
                               }`}
                             >
-                              {copySuccess ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                              <span>{copySuccess ? 'Copiado!' : 'Copiar Post'}</span>
+                              {copySuccessFb ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                              <span>{copySuccessFb ? 'Copiado!' : 'Copiar Post'}</span>
                             </button>
                           </div>
                           
@@ -687,6 +699,47 @@ export default function Dashboard() {
                             className="form-input w-full text-xs font-sans h-32 resize-none"
                             placeholder="Introduce el texto del post aquí..."
                           />
+                        </div>
+
+                        <div className="mt-3 border-t border-purple-950/40 pt-3">
+                          <div className="flex justify-between items-center mb-2">
+                            <h4 className="text-xs font-bold text-purple-300 uppercase tracking-wider">📷 Post de Instagram Listo (Máx. 2200)</h4>
+                            
+                            <button 
+                              onClick={() => copyToClipboardIg(editFields.Texto_Post_Instagram || detailContent.post_instagram)}
+                              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                                copySuccessIg 
+                                  ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 animate-pulse'
+                                  : 'bg-purple-600/10 text-purple-300 hover:bg-purple-600/20 border border-purple-500/20'
+                              }`}
+                            >
+                              {copySuccessIg ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                              <span>{copySuccessIg ? 'Copiado!' : 'Copiar Post'}</span>
+                            </button>
+                          </div>
+                          
+                          <textarea
+                            value={editFields.Texto_Post_Instagram || detailContent.post_instagram}
+                            onChange={(e) => setEditFields(prev => ({ ...prev, Texto_Post_Instagram: e.target.value }))}
+                            className="form-input w-full text-xs font-sans h-32 resize-none"
+                            placeholder="Introduce el texto del post para Instagram..."
+                          />
+                          
+                          <div className="flex justify-between items-center mt-1.5 px-1">
+                            <span className={`text-[10px] font-mono ${
+                              (editFields.Texto_Post_Instagram || detailContent.post_instagram || '').length > 2200 
+                                ? 'text-rose-500 font-bold' 
+                                : 'text-purple-400'
+                            }`}>
+                              {(editFields.Texto_Post_Instagram || detailContent.post_instagram || '').length} / 2200 caracteres
+                            </span>
+                            
+                            {(editFields.Texto_Post_Instagram || detailContent.post_instagram || '').length > 2200 && (
+                              <span className="text-[10px] text-rose-500 font-semibold flex items-center gap-1">
+                                <AlertCircle className="w-3 h-3" /> Excede el límite de Instagram
+                              </span>
+                            )}
+                          </div>
                         </div>
 
                         {/* Save Action Button */}

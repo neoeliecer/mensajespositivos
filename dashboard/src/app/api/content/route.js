@@ -36,6 +36,7 @@ export async function GET(request) {
     const results = {
       script: '',
       post: '',
+      post_instagram: '',
       resumen: '',
       titles: '',
       coverExists: false,
@@ -64,6 +65,10 @@ export async function GET(request) {
         `post_facebook_luz_cap${chapter}.md`,
         `post_facebook_luz_capitulo_${chapter}.md`
       ]);
+      results.post_instagram = tryReadFile([
+        `post_instagram_luz_cap${chapter}.md`,
+        `post_instagram_luz_capitulo_${chapter}.md`
+      ]);
       results.resumen = tryReadFile([
         `resumen_luz_cap${chapter}.md`
       ]);
@@ -79,6 +84,9 @@ export async function GET(request) {
       results.post = tryReadFile([
         `post_facebook_manos_cap${chapter}.md`
       ]);
+      results.post_instagram = tryReadFile([
+        `post_instagram_manos_cap${chapter}.md`
+      ]);
       results.resumen = tryReadFile([
         `resumen_manos_cap${chapter}.md`
       ]);
@@ -92,6 +100,9 @@ export async function GET(request) {
       ]);
       results.post = tryReadFile([
         `post_facebook_respira_cap${chapter}.md`
+      ]);
+      results.post_instagram = tryReadFile([
+        `post_instagram_respira_cap${chapter}.md`
       ]);
       results.resumen = tryReadFile([
         `resumen_respira_cap${chapter}.md`
@@ -108,6 +119,9 @@ export async function GET(request) {
       results.post = tryReadFile([
         `post_facebook_confiar_cap${chapter}.md`
       ]);
+      results.post_instagram = tryReadFile([
+        `post_instagram_confiar_cap${chapter}.md`
+      ]);
       results.resumen = tryReadFile([
         `resumen_confiar_cap${chapter}.md`
       ]);
@@ -122,12 +136,18 @@ export async function GET(request) {
       results.post = tryReadFile([
         `post_facebook_placebo_capitulo_${chapter}.md`
       ]);
+      results.post_instagram = tryReadFile([
+        `post_instagram_placebo_capitulo_${chapter}.md`
+      ]);
     } else if (cleanSeries === 'musica') {
       results.script = tryReadFile([
         `guion_musica_capitulo_${chapter}.md`
       ]);
       results.post = tryReadFile([
         `post_facebook_musica_capitulo_${chapter}.md`
+      ]);
+      results.post_instagram = tryReadFile([
+        `post_instagram_musica_capitulo_${chapter}.md`
       ]);
     } else {
       // Default / Recupera tu mente patterns
@@ -140,6 +160,11 @@ export async function GET(request) {
         `post_facebook_capitulo_${chapter}.md`,
         `post_facebook_luz_cap${chapter}.md`,
         `post_facebook_${cleanSeries}_cap${chapter}.md`
+      ]);
+      results.post_instagram = tryReadFile([
+        `post_instagram_capitulo_${chapter}.md`,
+        `post_instagram_luz_cap${chapter}.md`,
+        `post_instagram_${cleanSeries}_cap${chapter}.md`
       ]);
       results.titles = tryReadFile([
         `titulos_capitulo_${chapter}.md`,
