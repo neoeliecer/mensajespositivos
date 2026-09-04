@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensajes Positivos - Simulador de Consciencia</title>
+  <meta http-equiv="refresh" content="0;url=simulador.html">
+  <style>
+    body {
+      background: #0f172a;
+      color: #e2e8f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: system-ui, sans-serif;
+      margin: 0;
+    }
+    .loading {
+      text-align: center;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #334155;
+      border-top-color: #a855f7;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <div class="spinner"></div>
+    <p>Cargando simulador...</p>
+  </div>
+</body>
+</html>
