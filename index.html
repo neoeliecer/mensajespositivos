@@ -184,6 +184,70 @@
           </div>
         </div>
       </div>
+
+      <!-- Simulador de Frecuencias Card -->
+      <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-10 border border-slate-700/50">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <!-- Preview del osciloscopio -->
+          <div class="bg-slate-950 rounded-xl border border-slate-800 p-5 order-2 md:order-1">
+            <div class="flex items-center gap-1.5 mb-3">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+              <span class="text-[10px] text-slate-600 ml-2">simulador-frecuencias.html</span>
+            </div>
+            <div class="space-y-2">
+              <div class="h-20 relative overflow-hidden rounded-lg bg-slate-900 border border-slate-800">
+                <svg viewBox="0 0 200 60" class="w-full h-full">
+                  <path d="M0,30 Q25,10 50,30 T100,30 T150,30 T200,30" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.6"/>
+                  <path d="M0,30 Q20,20 40,30 T80,30 T120,30 T160,30 T200,30" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
+                  <path d="M0,30 Q15,25 30,30 T60,30 T90,30 T120,30 T150,30 T180,30 T200,30" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.8"/>
+                </svg>
+              </div>
+              <div class="flex justify-between text-[9px] text-slate-500">
+                <span class="flex items-center gap-1"><span class="w-2 h-2 bg-red-500 rounded"></span>Delta</span>
+                <span class="flex items-center gap-1"><span class="w-2 h-2 bg-blue-500 rounded"></span>Theta</span>
+                <span class="flex items-center gap-1"><span class="w-2 h-2 bg-emerald-500 rounded"></span>Alpha</span>
+                <span class="flex items-center gap-1"><span class="w-2 h-2 bg-amber-500 rounded"></span>Beta</span>
+                <span class="flex items-center gap-1"><span class="w-2 h-2 bg-pink-500 rounded"></span>Gamma</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-1 md:order-2">
+            <div class="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 px-3 py-1.5 rounded-full text-xs font-medium mb-4">
+              <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></span>
+              Osciloscopio en Vivo
+            </div>
+            
+            <h3 class="text-2xl font-bold mb-3">Simulador de Frecuencias Cerebrales</h3>
+            <p class="text-slate-400 mb-5 leading-relaxed">
+              Visualiza en tiempo real cómo tus emociones alteran tus ondas cerebrales. El osciloscopio muestra la coherencia de fase entre Delta, Theta, Alpha, Beta y Gamma.
+            </p>
+
+            <ul class="space-y-2 mb-6 text-sm">
+              <li class="flex items-center gap-2 text-slate-300">
+                <svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                3 estados emocionales (Miedo, Ira, Coherencia)
+              </li>
+              <li class="flex items-center gap-2 text-slate-300">
+                <svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                5 bandas de frecuencia con osciloscopio animado
+              </li>
+              <li class="flex items-center gap-2 text-slate-300">
+                <svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                Análisis de coherencia de fase en tiempo real
+              </li>
+            </ul>
+
+            <a href="simulador-frecuencias.html" 
+               class="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/25">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Abrir Osciloscopio
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

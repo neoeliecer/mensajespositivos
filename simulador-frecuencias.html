@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Coherencia y Frecuencias Cerebrales</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .cyber-grid {
+      background-size: 30px 30px;
+      background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    }
+    .neon-glow-harmonic {
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+    }
+    .neon-glow-chaotic {
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased pb-12">
+
+  <header class="border-b border-slate-800 bg-slate-900/60 backdrop-blur sticky top-0 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>
+        <h1 class="text-2xl font-black bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-500 bg-clip-text text-transparent tracking-tight">
+          BRAINWAVE COHERENCE LAB
+        </h1>
+        <p class="text-xs text-slate-400 font-medium">Modelador Biofísico de Armónicos Cerebrales y Estrés Neuroquímico</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-xs font-mono text-slate-400">Coherencia Global:</span>
+        <div id="badge-coherencia" class="px-3 py-1 rounded-full text-xs font-bold transition-all duration-300">
+          Calibrando...
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+    
+    <section class="lg:col-span-4 flex flex-col gap-6">
+      
+      <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col gap-5">
+        <div>
+          <h2 class="text-lg font-bold text-slate-200">1. Estado Psicoemocional</h2>
+          <p class="text-xs text-slate-400">Modula los inputs subjetivos para alterar el espectro electromagnético.</p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <div class="flex justify-between text-sm">
+            <span class="text-red-400 font-semibold flex items-center gap-1.5">😟 Miedo / Estrés</span>
+            <span id="lbl-miedo" class="font-mono text-slate-300">30%</span>
+          </div>
+          <input type="range" id="input-miedo" min="0" max="100" value="30" class="w-full accent-red-500 h-1.5 bg-slate-800 rounded-lg cursor-pointer">
+          <p class="text-[10px] text-slate-500">Eleva el Cortisol y fragmenta las ondas en patrones caóticos (Beta Alta y ruido).</p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <div class="flex justify-between text-sm">
+            <span class="text-orange-400 font-semibold flex items-center gap-1.5">😡 Ira / Reactividad</span>
+            <span id="lbl-ira" class="font-mono text-slate-300">20%</span>
+          </div>
+          <input type="range" id="input-ira" min="0" max="100" value="20" class="w-full accent-orange-500 h-1.5 bg-slate-800 rounded-lg cursor-pointer">
+          <p class="text-[10px] text-slate-500">Induce picos de Adrenalina y descargas desincronizadas de alta frecuencia (Gamma incoherente).</p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <div class="flex justify-between text-sm">
+            <span class="text-emerald-400 font-semibold flex items-center gap-1.5">🧘 Coherencia / Meditación</span>
+            <span id="lbl-coherencia" class="font-mono text-slate-300">60%</span>
+          </div>
+          <input type="range" id="input-coherencia" min="0" max="100" value="60" class="w-full accent-emerald-500 h-1.5 bg-slate-800 rounded-lg cursor-pointer">
+          <p class="text-[10px] text-slate-500">Libera Oxitocina y genera un acoplamiento armónico de fase en ondas Alfa y Theta.</p>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col gap-4">
+        <div>
+          <h2 class="text-base font-bold text-slate-200">2. Respuesta Endocrina</h2>
+          <p class="text-xs text-slate-400">Hormonas liberadas en respuesta al estado de la amígdala y el hipotálamo.</p>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <div class="flex justify-between text-xs">
+            <span class="text-slate-400">Cortisol (Estrés)</span>
+            <span id="hormona-cortisol" class="font-mono text-red-400 font-bold">120 ng/mL</span>
+          </div>
+          <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+            <div id="bar-cortisol" class="bg-red-500 h-full transition-all duration-300" style="width: 30%;"></div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <div class="flex justify-between text-xs">
+            <span class="text-slate-400">Adrenalina (Alerta)</span>
+            <span id="hormona-adrenalina" class="font-mono text-orange-400 font-bold">45 pg/mL</span>
+          </div>
+          <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+            <div id="bar-adrenalina" class="bg-orange-500 h-full transition-all duration-300" style="width: 20%;"></div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <div class="flex justify-between text-xs">
+            <span class="text-slate-400">Oxitocina (Vínculo/Calma)</span>
+            <span id="hormona-oxitocina" class="font-mono text-emerald-400 font-bold">85 pg/mL</span>
+          </div>
+          <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+            <div id="bar-oxitocina" class="bg-emerald-500 h-full transition-all duration-300" style="width: 60%;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lg:col-span-8 flex flex-col gap-8">
+      
+      <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col gap-4">
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+          <div>
+            <h2 class="text-lg font-bold text-slate-200">Osciloscopio de Coherencia EEG</h2>
+            <p class="text-xs text-slate-400">Onda compuesta (púrpura) y espectro de desfase de las ondas constitutivas.</p>
+          </div>
+          <div class="flex bg-slate-950 p-1 rounded-lg border border-slate-800 self-start">
+            <button id="btn-show-all" onclick="setViewMode('all')" class="px-3 py-1 rounded text-xs font-semibold bg-indigo-600 text-white transition-all">Ver Todo</button>
+            <button id="btn-show-comp" onclick="setViewMode('composite')" class="px-3 py-1 rounded text-xs font-semibold text-slate-400 hover:text-white transition-all">Solo Compuesta</button>
+          </div>
+        </div>
+
+        <div class="relative w-full aspect-[21/9] bg-slate-950 border border-slate-800 rounded-xl overflow-hidden cyber-grid flex items-center justify-center">
+          <canvas id="oscilos-canvas" class="absolute inset-0 w-full h-full"></canvas>
+          <div id="noise-overlay" class="absolute inset-0 pointer-events-none bg-gradient-to-t from-red-500/5 via-transparent to-emerald-500/5 transition-all duration-500"></div>
+        </div>
+
+        <div class="grid grid-cols-5 gap-2 text-center text-[10px] font-semibold border-t border-slate-800/60 pt-4">
+          <div class="flex flex-col items-center gap-1">
+            <span class="w-3 h-3 rounded bg-[#ef4444] block"></span>
+            <span class="text-slate-400">Delta (1-3 Hz)</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="w-3 h-3 rounded bg-[#3b82f6] block"></span>
+            <span class="text-slate-400">Theta (4-7 Hz)</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="w-3 h-3 rounded bg-[#10b981] block"></span>
+            <span class="text-slate-400">Alpha (8-12 Hz)</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="w-3 h-3 rounded bg-[#f59e0b] block"></span>
+            <span class="text-slate-400">Beta (12-30 Hz)</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="w-3 h-3 rounded bg-[#ec4899] block"></span>
+            <span class="text-slate-400">Gamma (31-60 Hz)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col gap-4">
+          <h3 class="text-xs uppercase tracking-widest font-black text-slate-400">Dinámica de Acoplamiento</h3>
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-full border-4 border-slate-800 flex items-center justify-center relative overflow-hidden" id="circle-coherence">
+              <span id="txt-coherence-percent" class="font-mono font-bold text-sm">0%</span>
+            </div>
+            <div>
+              <h4 id="coherence-status" class="font-bold text-base text-slate-200">Sincronización Débil</h4>
+              <p id="coherence-subtitle" class="text-xs text-slate-400">Las ondas no se encuentran alineadas en fase.</p>
+            </div>
+          </div>
+          <p id="coherence-desc" class="text-xs text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
+            Cuando impera el miedo, el cortisol elevado satura los receptores del hipocampo, interrumpiendo la plasticidad sináptica y desalineando la fase de disparo de los conjuntos corticales, lo que produce una señal altamente fragmentada y caótica.
+          </p>
+        </div>
+
+        <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col gap-4">
+          <h3 class="text-xs uppercase tracking-widest font-black text-slate-400">Consecuencias Cognitivas</h3>
+          <div class="flex flex-col gap-3">
+            <div class="flex items-start gap-3">
+              <span id="icon-cognitivo-1" class="text-lg">🧠</span>
+              <div>
+                <h4 id="title-cognitivo-1" class="text-xs font-bold text-slate-200">Atención Fragmentada</h4>
+                <p id="desc-cognitivo-1" class="text-[11px] text-slate-400">Dificultad severa para codificar recuerdos a largo plazo y mantener el enfoque ejecutivo.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span id="icon-cognitivo-2" class="text-lg">⚡</span>
+              <div>
+                <h4 id="title-cognitivo-2" class="text-xs font-bold text-slate-200">Hipervigilancia Amigdalina</h4>
+                <p id="desc-cognitivo-2" class="text-[11px] text-slate-400">El cerebro prioriza las señales de peligro y rumiación obsesiva.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    const inputs = {
+      miedo: document.getElementById('input-miedo'),
+      ira: document.getElementById('input-ira'),
+      coherencia: document.getElementById('input-coherencia')
+    };
+
+    const labels = {
+      miedo: document.getElementById('lbl-miedo'),
+      ira: document.getElementById('lbl-ira'),
+      coherencia: document.getElementById('lbl-coherencia')
+    };
+
+    const endocrine = {
+      cortisol: { val: document.getElementById('hormona-cortisol'), bar: document.getElementById('bar-cortisol') },
+      adrenalina: { val: document.getElementById('hormona-adrenalina'), bar: document.getElementById('bar-adrenalina') },
+      oxitocina: { val: document.getElementById('hormona-oxitocina'), bar: document.getElementById('bar-oxitocina') }
+    };
+
+    const badgeCoherencia = document.getElementById('badge-coherencia');
+    const circleCoherence = document.getElementById('circle-coherence');
+    const txtCoherencePercent = document.getElementById('txt-coherence-percent');
+    const coherenceStatus = document.getElementById('coherence-status');
+    const coherenceSubtitle = document.getElementById('coherence-subtitle');
+    const coherenceDesc = document.getElementById('coherence-desc');
+    const noiseOverlay = document.getElementById('noise-overlay');
+
+    const cog = {
+      icon1: document.getElementById('icon-cognitivo-1'),
+      title1: document.getElementById('title-cognitivo-1'),
+      desc1: document.getElementById('desc-cognitivo-1'),
+      icon2: document.getElementById('icon-cognitivo-2'),
+      title2: document.getElementById('title-cognitivo-2'),
+      desc2: document.getElementById('desc-cognitivo-2')
+    };
+
+    const canvas = document.getElementById('oscilos-canvas');
+    const ctx = canvas.getContext('2d');
+    let viewMode = 'all';
+
+    function setViewMode(mode) {
+      viewMode = mode;
+      document.getElementById('btn-show-all').className = mode === 'all' ? "px-3 py-1 rounded text-xs font-semibold bg-indigo-600 text-white transition-all" : "px-3 py-1 rounded text-xs font-semibold text-slate-400 hover:text-white transition-all";
+      document.getElementById('btn-show-comp').className = mode === 'composite' ? "px-3 py-1 rounded text-xs font-semibold bg-indigo-600 text-white transition-all" : "px-3 py-1 rounded text-xs font-semibold text-slate-400 hover:text-white transition-all";
+    }
+
+    function resizeCanvas() {
+      canvas.width = canvas.clientWidth * window.devicePixelRatio;
+      canvas.height = canvas.clientHeight * window.devicePixelRatio;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const bands = {
+      delta: { freq: 1.8, color: '#ef4444', amp: 0.1 },
+      theta: { freq: 5.5, color: '#3b82f6', amp: 0.2 },
+      alpha: { freq: 10.2, color: '#10b981', amp: 0.3 },
+      beta: { freq: 22.0, color: '#f59e0b', amp: 0.2 },
+      gamma: { freq: 40.0, color: '#ec4899', amp: 0.1 }
+    };
+
+    let offsetTime = 0;
+
+    function renderLoop() {
+      const miedo = parseFloat(inputs.miedo.value);
+      const ira = parseFloat(inputs.ira.value);
+      const coherenciaInput = parseFloat(inputs.coherencia.value);
+
+      labels.miedo.innerText = `${miedo}%`;
+      labels.ira.innerText = `${ira}%`;
+      labels.coherencia.innerText = `${coherenciaInput}%`;
+
+      const cortisolVal = Math.round(Math.max(10, 80 + (miedo * 2.7) - (coherenciaInput * 0.8)));
+      const adrenalinaVal = Math.round(Math.max(5, 20 + (ira * 2.3) + (miedo * 0.5) - (coherenciaInput * 0.4)));
+      const oxitocinaVal = Math.round(Math.max(2, (coherenciaInput * 1.5) - (miedo * 0.3)));
+
+      endocrine.cortisol.val.innerText = `${cortisolVal} ng/mL`;
+      endocrine.cortisol.bar.style.width = `${Math.min(100, (cortisolVal / 350) * 100)}%`;
+      endocrine.adrenalina.val.innerText = `${adrenalinaVal} pg/mL`;
+      endocrine.adrenalina.bar.style.width = `${Math.min(100, (adrenalinaVal / 250) * 100)}%`;
+      endocrine.oxitocina.val.innerText = `${oxitocinaVal} pg/mL`;
+      endocrine.oxitocina.bar.style.width = `${Math.min(100, (oxitocinaVal / 150) * 100)}%`;
+
+      let coherenceScore = Math.max(0, Math.min(100, coherenciaInput - (miedo * 0.6) - (ira * 0.4)));
+      coherenceScore = Math.round(coherenceScore);
+
+      txtCoherencePercent.innerText = `${coherenceScore}%`;
+      circleCoherence.style.borderColor = coherenceScore >= 70 ? '#10b981' : (coherenceScore >= 40 ? '#f59e0b' : '#ef4444');
+
+      bands.alpha.amp = 0.05 + (coherenceScore / 100) * 0.45;
+      bands.theta.amp = 0.1 + (coherenciaInput / 100) * 0.3;
+      bands.beta.amp = 0.05 + (miedo / 100) * 0.45;
+      bands.gamma.amp = 0.02 + (ira / 100) * 0.35;
+      bands.delta.amp = 0.05 + (1.0 - (coherenciaInput + miedo + ira)/300) * 0.2;
+
+      if (coherenceScore >= 75) {
+        badgeCoherencia.innerText = "COHERENCIA ARMÓNICA MÁXIMA";
+        badgeCoherencia.className = "px-3 py-1 rounded-full text-xs font-bold bg-emerald-950/80 text-emerald-300 border border-emerald-500/40 neon-glow-harmonic animate-pulse";
+        coherenceStatus.innerText = "Sincronía de Fase Coherente";
+        coherenceSubtitle.innerText = "Unificación simétrica y armónica del córtex.";
+        coherenceDesc.innerText = "Tu cerebro se encuentra en un estado de coherencia global altamente armónica. Al bajar el Cortisol y subir la Oxitocina, los osciladores corticales entran en un acoplamiento simétrico perfecto (bloqueo de fase de ondas Alfa y Theta), facilitando un flujo óptimo de información y paz interior.";
+        noiseOverlay.style.background = "linear-gradient(to t, rgba(16, 185, 129, 0.08) 0%, transparent 50%, rgba(16, 185, 129, 0.05) 100%)";
+        cog.icon1.innerText = "✨";
+        cog.title1.innerText = "Súper Aprendizaje";
+        cog.desc1.innerText = "La alineación armónica de ondas Theta e integración hemisférica amplifica el procesamiento cognitivo y la intuición.";
+        cog.icon2.innerText = "🕊️";
+        cog.title2.innerText = "Regulación Emocional Pasiva";
+        cog.desc2.innerText = "La corteza prefrontal ejerce un control descendente (top-down) saludable sobre la amígdala amansando el miedo.";
+      } else if (coherenceScore >= 45) {
+        badgeCoherencia.innerText = "BALANCE HOMEOSTÁTICO";
+        badgeCoherencia.className = "px-3 py-1 rounded-full text-xs font-bold bg-cyan-950/80 text-cyan-300 border border-cyan-500/30";
+        coherenceStatus.innerText = "Vigilia Normal Estable";
+        coherenceSubtitle.innerText = "Alineación de fase parcial moderada.";
+        coherenceDesc.innerText = "Estado normal de vigilia. Los niveles de cortisol están equilibrados con los analgésicos naturales y los circuitos prefrontales manejan el estrés de manera funcional. Las fluctuaciones electromagnéticas se mantienen dentro de límites homeostáticos sanos.";
+        noiseOverlay.style.background = "linear-gradient(to t, rgba(6, 182, 212, 0.03) 0%, transparent 100%)";
+        cog.icon1.innerText = "🧠";
+        cog.title1.innerText = "Pensamiento Lógico-Analítico";
+        cog.desc1.innerText = "Las ondas Beta e intermedias permiten un enfoque pragmático ideal para realizar tareas estructuradas.";
+        cog.icon2.innerText = "⚡";
+        cog.title2.innerText = "Alerta Controlada";
+        cog.desc2.innerText = "El sistema simpático se activa y desactiva dinámicamente según lo requiera el ambiente inmediato.";
+      } else {
+        badgeCoherencia.innerText = "ESTADO DE CAOS EMOCIONAL (INCOHERENTE)";
+        badgeCoherencia.className = "px-3 py-1 rounded-full text-xs font-bold bg-red-950/80 text-red-300 border border-red-500/40 neon-glow-chaotic animate-pulse";
+        coherenceStatus.innerText = "Caos Electromagnético";
+        coherenceSubtitle.innerText = "Desincronización y ruido por hipercortisolismo.";
+        coherenceDesc.innerText = "La amígdala secuestra los sistemas corticales. El disparo masivo de cortisol inunda el hipocampo, bloqueando las conexiones sinápticas. El resultado es un desajuste total en la alineación de fase, provocando ráfagas caóticas, disonantes y ruidosas de ondas Beta y Gamma.";
+        noiseOverlay.style.background = "linear-gradient(to t, rgba(239, 68, 68, 0.08) 0%, transparent 50%, rgba(239, 68, 68, 0.05) 100%)";
+        cog.icon1.innerText = "💔";
+        cog.title1.innerText = "Rumiación y Neblina Mental";
+        cog.desc1.innerText = "La inundación de cortisol inhibe la memoria de trabajo, dificultando pensar de manera lógica o creativa.";
+        cog.icon2.innerText = "🦁";
+        cog.title2.innerText = "Secuestro Amigdalino";
+        cog.desc2.innerText = "La amígdala hiperactiva anula el discernimiento prefrontal, sumergiendo a la mente en modo de lucha o huida.";
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const width = canvas.width;
+      const height = canvas.height;
+      const midY = height / 2;
+
+      ctx.strokeStyle = 'rgba(51, 65, 85, 0.15)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < width; i += 50) {
+        ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, height); ctx.stroke();
+      }
+      for (let i = 0; i < height; i += 50) {
+        ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(width, i); ctx.stroke();
+      }
+
+      const chaosFactor = (100 - coherenceScore) / 100;
+      const waveScale = height / 5;
+
+      if (viewMode === 'all') {
+        for (let name in bands) {
+          const band = bands[name];
+          ctx.beginPath();
+          ctx.strokeStyle = band.color + '35';
+          ctx.lineWidth = 2;
+          for (let x = 0; x < width; x++) {
+            const t = (x / width) * 4 + offsetTime;
+            const phaseJitter = chaosFactor * 1.5 * Math.sin(t * 8.0 + name.charCodeAt(0));
+            const val = band.amp * Math.sin((t * band.freq * Math.PI) + phaseJitter);
+            const y = (midY + 40) + (val * (height / 8));
+            if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+        }
+      }
+
+      ctx.beginPath();
+      const r = Math.round(239 - (coherenceScore * 2.2));
+      const g = Math.round(68 + (coherenceScore * 1.1));
+      const b = Math.round(68 + (coherenceScore * 1.8));
+      ctx.strokeStyle = `rgb(${r}, ${g}, ${b})`;
+      ctx.shadowColor = `rgba(${r}, ${g}, ${b}, 0.5)`;
+      ctx.shadowBlur = coherenceScore >= 70 ? 10 : 2;
+      ctx.lineWidth = 4;
+
+      for (let x = 0; x < width; x++) {
+        let compoundVal = 0;
+        const t = (x / width) * 4 + offsetTime;
+        for (let name in bands) {
+          const band = bands[name];
+          const phaseJitter = chaosFactor * 2.0 * Math.sin(t * 12.0 + name.charCodeAt(0));
+          const randomNoise = chaosFactor * 0.09 * (Math.random() - 0.5);
+          compoundVal += band.amp * Math.sin((t * band.freq * Math.PI) + phaseJitter) + randomNoise;
+        }
+        const y = midY + (compoundVal * waveScale);
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      offsetTime += 0.003 + (adrenalinaVal / 10000);
+
+      requestAnimationFrame(renderLoop);
+    }
+
+    renderLoop();
+  </script>
+</body>
+</html>
