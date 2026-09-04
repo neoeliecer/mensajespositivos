@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mensajes Positivos y de Reflexión</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; }
@@ -16,358 +14,207 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .hero-gradient {
-      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
-    }
-    .card-glow:hover {
-      box-shadow: 0 0 40px rgba(168, 85, 247, 0.15);
-    }
-    .float-animation {
-      animation: float 6s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-    .pulse-soft {
-      animation: pulse-soft 3s ease-in-out infinite;
-    }
-    @keyframes pulse-soft {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
-    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100">
 
-  <!-- Hero Section -->
-  <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
-    <!-- Decorative elements -->
+  <!-- Hero -->
+  <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
     <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
     <div class="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-3xl"></div>
     
-    <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
-      <!-- Logo / Icon -->
-      <div class="float-animation mb-8">
-        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-purple-500 to-blue-500 rounded-3xl flex items-center justify-center shadow-2xl shadow-purple-500/20">
-          <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-          </svg>
-        </div>
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <div class="w-20 h-20 mx-auto bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center mb-8 shadow-2xl shadow-purple-500/20">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+        </svg>
       </div>
 
-      <h1 class="font-display text-5xl md:text-7xl font-bold mb-6">
+      <h1 class="font-display text-5xl md:text-6xl font-bold mb-6">
         <span class="gradient-text">Mensajes Positivos</span>
         <br>
-        <span class="text-slate-300 text-3xl md:text-4xl font-light">y de Reflexión</span>
+        <span class="text-slate-300 text-2xl md:text-3xl font-light">y de Reflexión</span>
       </h1>
 
-      <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-        Un espacio dedicado a <span class="text-purple-400 font-medium">alimentar el alma</span> con frases, reflexiones e historias que inspiran, motivan y transforman la vida de quienes las reciben.
+      <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Una comunidad de más de <span class="text-purple-400 font-semibold">171,000 personas</span> que compartimos diariamente frases, reflexiones e historias para inspirar, motivar y transformar vidas.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://www.facebook.com/mensajespositivosydereflexion" target="_blank" 
-           class="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-purple-500/25 flex items-center justify-center gap-2">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          Seguimos en Facebook
-        </a>
-        <a href="#herramientas" 
-           class="border border-slate-700 hover:border-purple-500 text-slate-300 hover:text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 flex items-center justify-center gap-2">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          Explorar Herramientas
-        </a>
-      </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 pulse-soft">
-      <svg class="w-6 h-6 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-      </svg>
+      <a href="https://www.facebook.com/mensajespositivosydereflexion" target="_blank" 
+         class="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-purple-500/25">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Seguir en Facebook
+      </a>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="py-24 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <span class="text-purple-400 text-sm font-semibold uppercase tracking-widest">Nuestra Misión</span>
-        <h2 class="font-display text-4xl md:text-5xl font-bold mt-4 mb-6">¿De qué trata esta página?</h2>
+  <!-- Descripción de la Página -->
+  <section class="py-20 px-6 bg-slate-900/30">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="text-purple-400 text-sm font-semibold uppercase tracking-widest">Nuestra Esencia</span>
+        <h2 class="font-display text-3xl md:text-4xl font-bold mt-4">¿Qué es esta página?</h2>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div class="space-y-6">
-          <p class="text-lg text-slate-300 leading-relaxed">
-            Somos una comunidad de más de <span class="text-purple-400 font-semibold">171,000 personas</span> que creen en el poder de las palabras para transformar realidades. Cada día compartimos contenido diseñado para:
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div class="space-y-5">
+          <p class="text-slate-300 leading-relaxed">
+            <strong class="text-white">Mensajes Positivos y de Reflexión</strong> es un espacio dedicado a alimentar el alma con palabras que transforman. Cada día compartimos contenido diseñado para tocar el corazón y abrir la mente.
           </p>
           
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <div class="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-3 h-3 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
-              </div>
-              <span class="text-slate-300"><strong class="text-white">Motivar</strong> en los momentos difíciles con frases que dan fuerza y esperanza.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <div class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-3 h-3 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
-              </div>
-              <span class="text-slate-300"><strong class="text-white">Invitar a la reflexión</strong> sobre temas profundos de la vida, el amor y el crecimiento personal.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <div class="w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-3 h-3 text-indigo-400" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
-              </div>
-              <span class="text-slate-300"><strong class="text-white">Crear comunidad</strong> de personas que buscan una vida más consciente y plena.</span>
-            </li>
-          </ul>
+          <p class="text-slate-400 leading-relaxed">
+            Creemos en el poder de las palabras para cambiar realidades. No importa si estás pasando por un momento difícil o simplemente buscas inspiración para tu día; aquí encontrarás un refugio de paz, motivación y crecimiento personal.
+          </p>
 
-          <p class="text-slate-400 italic border-l-2 border-purple-500 pl-4">
-            "Transforma tus heridas en sabiduría" — Oprah Winfrey
+          <p class="text-slate-400 leading-relaxed">
+            Nuestra comunidad crece cada día porque compartimos contenido genuino, sin pretensiones, que llega directo al alma. Frases cortas pero poderosas, reflexiones profundas y historias que recuerdan que siempre hay luz en la oscuridad.
           </p>
         </div>
 
-        <div class="relative">
-          <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 border border-slate-700/50">
-            <div class="grid grid-cols-2 gap-4">
-              <div class="bg-slate-800/50 rounded-2xl p-6 text-center border border-slate-700/30">
-                <div class="text-3xl font-bold gradient-text mb-1">171K+</div>
-                <div class="text-sm text-slate-400">Seguidores</div>
-              </div>
-              <div class="bg-slate-800/50 rounded-2xl p-6 text-center border border-slate-700/30">
-                <div class="text-3xl font-bold gradient-text mb-1">Diario</div>
-                <div class="text-sm text-slate-400">Publicaciones</div>
-              </div>
-              <div class="bg-slate-800/50 rounded-2xl p-6 text-center border border-slate-700/30">
-                <div class="text-3xl font-bold gradient-text mb-1">Videos</div>
-                <div class="text-sm text-slate-400">Motivacionales</div>
-              </div>
-              <div class="bg-slate-800/50 rounded-2xl p-6 text-center border border-slate-700/30">
-                <div class="text-3xl font-bold gradient-text mb-1">Gratis</div>
-                <div class="text-sm text-slate-400">Para todos</div>
-              </div>
-            </div>
-          </div>
+        <div class="bg-slate-900/80 rounded-2xl p-6 border border-slate-800">
+          <h3 class="font-bold text-lg mb-4 text-slate-200">Lo que encontrarás:</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-purple-400 mt-1">✦</span>
+              <span class="text-slate-300"><strong class="text-white">Frases positivas</strong> que dan fuerza y esperanza en momentos difíciles</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-400 mt-1">✦</span>
+              <span class="text-slate-300"><strong class="text-white">Reflexiones diarias</strong> sobre la vida, el amor y el crecimiento personal</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-indigo-400 mt-1">✦</span>
+              <span class="text-slate-300"><strong class="text-white">Mensajes de buenos días</strong> para empezar con energía y gratitud</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-400 mt-1">✦</span>
+              <span class="text-slate-300"><strong class="text-white">Mensajes de buenas noches</strong> para cerrar el día en paz</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-amber-400 mt-1">✦</span>
+              <span class="text-slate-300"><strong class="text-white">Videos motivacionales</strong> con narración y música que toca el alma</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-rose-400 mt-1">✦</span>
+              <span class="text-slate-300"><strong class="text-white">Historias inspiradoras</strong> de superación y transformación</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Content Types Section -->
-  <section class="py-24 px-6 bg-slate-900/50">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <span class="text-blue-400 text-sm font-semibold uppercase tracking-widest">Contenido</span>
-        <h2 class="font-display text-4xl md:text-5xl font-bold mt-4 mb-6">Lo que encontrarás</h2>
-        <p class="text-slate-400 max-w-2xl mx-auto">Cada publicación está pensada para tocar el corazón y abrir la mente a nuevas posibilidades.</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Card 1 -->
-        <div class="bg-slate-900/80 rounded-3xl p-8 border border-slate-800 hover:border-purple-500/50 transition-all duration-300 card-glow group">
-          <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Frases Positivas</h3>
-          <p class="text-slate-400 leading-relaxed">Palabras cortas pero poderosas que iluminan el día y dan fuerza para seguir adelante.</p>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="bg-slate-900/80 rounded-3xl p-8 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 card-glow group">
-          <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Reflexiones</h3>
-          <p class="text-slate-400 leading-relaxed">Textos profundos que invitan a detenerse, pensar y crecer como ser humano.</p>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="bg-slate-900/80 rounded-3xl p-8 border border-slate-800 hover:border-indigo-500/50 transition-all duration-300 card-glow group">
-          <div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Videos Motivacionales</h3>
-          <p class="text-slate-400 leading-relaxed">Contenido audiovisual con narración y música que toca el alma.</p>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="bg-slate-900/80 rounded-3xl p-8 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 card-glow group">
-          <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Buenos Días</h3>
-          <p class="text-slate-400 leading-relaxed">Mensajes para comenzar cada jornada con energía, gratitud y una sonrisa.</p>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="bg-slate-900/80 rounded-3xl p-8 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 card-glow group">
-          <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Buenas Noches</h3>
-          <p class="text-slate-400 leading-relaxed">Para cerrar el día en paz, agradecer y descansar con el alma tranquila.</p>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="bg-slate-900/80 rounded-3xl p-8 border border-slate-800 hover:border-rose-500/50 transition-all duration-300 card-glow group">
-          <div class="w-14 h-14 bg-gradient-to-br from-rose-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Comunidad</h3>
-          <p class="text-slate-400 leading-relaxed">Un espacio seguro donde compartimos, crecemos y nos apoyamos mutuamente.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tools Section -->
-  <section id="herramientas" class="py-24 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
+  <!-- Herramientas Section -->
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
         <span class="text-emerald-400 text-sm font-semibold uppercase tracking-widest">Herramientas</span>
-        <h2 class="font-display text-4xl md:text-5xl font-bold mt-4 mb-6">Recursos Adicionales</h2>
-        <p class="text-slate-400 max-w-2xl mx-auto">Herramientas interactivas para complementar tu camino de crecimiento personal y bienestar.</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold mt-4">Recursos Adicionales</h2>
+        <p class="text-slate-400 mt-3 max-w-xl mx-auto">Herramientas interactivas para complementar tu camino de bienestar y crecimiento personal.</p>
       </div>
 
-      <!-- Simulator Card -->
-      <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 md:p-12 border border-slate-700/50 relative overflow-hidden">
-        <!-- Background decoration -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
-        
-        <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+      <!-- Simulador Card -->
+      <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-10 border border-slate-700/50">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+            <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-3 py-1.5 rounded-full text-xs font-medium mb-4">
+              <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
               Herramienta Interactiva
             </div>
             
-            <h3 class="font-display text-3xl md:text-4xl font-bold mb-4">Simulador Neuroquímico</h3>
-            <p class="text-slate-300 text-lg mb-6 leading-relaxed">
-              Descubre cómo tus emociones, hábitos y estilo de vida afectan tu química cerebral. Una herramienta basada en neurociencia que te permite visualizar en tiempo real el impacto de tus decisiones diarias.
+            <h3 class="text-2xl font-bold mb-3">Simulador Neuroquímico</h3>
+            <p class="text-slate-400 mb-5 leading-relaxed">
+              Visualiza en tiempo real cómo tus emociones, hábitos y estilo de vida afectan tu química cerebral. Basado en neurociencia, te muestra el impacto de tus decisiones diarias.
             </p>
 
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-center gap-3 text-slate-300">
-                <svg class="w-5 h-5 text-emerald-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
-                <span>Mapa 2D de tu estado de consciencia</span>
+            <ul class="space-y-2 mb-6 text-sm">
+              <li class="flex items-center gap-2 text-slate-300">
+                <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                Mapa 2D de tu estado de consciencia
               </li>
-              <li class="flex items-center gap-3 text-slate-300">
-                <svg class="w-5 h-5 text-emerald-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
-                <span>6 variables de entrada (estrés, sueño, ejercicio...)</span>
+              <li class="flex items-center gap-2 text-slate-300">
+                <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                6 variables de entrada (estrés, sueño, ejercicio...)
               </li>
-              <li class="flex items-center gap-3 text-slate-300">
-                <svg class="w-5 h-5 text-emerald-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
-                <span>6 neurotransmisores monitoreados en tiempo real</span>
-              </li>
-              <li class="flex items-center gap-3 text-slate-300">
-                <svg class="w-5 h-5 text-emerald-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
-                <span>100% gratuito y funciona en tu navegador</span>
+              <li class="flex items-center gap-2 text-slate-300">
+                <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                100% gratuito — funciona en tu navegador
               </li>
             </ul>
 
             <a href="simulador.html" 
-               class="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/25">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+               class="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/25">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
               Abrir Simulador
             </a>
           </div>
 
-          <!-- Simulator Preview -->
-          <div class="bg-slate-950 rounded-2xl border border-slate-800 p-6 shadow-2xl">
-            <div class="flex items-center gap-2 mb-4">
-              <div class="w-3 h-3 rounded-full bg-red-500"></div>
-              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div class="w-3 h-3 rounded-full bg-green-500"></div>
-              <span class="text-xs text-slate-500 ml-2">simulador.html</span>
+          <!-- Preview del simulador -->
+          <div class="bg-slate-950 rounded-xl border border-slate-800 p-5">
+            <div class="flex items-center gap-1.5 mb-3">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+              <span class="text-[10px] text-slate-600 ml-2">simulador.html</span>
             </div>
-            <div class="space-y-3">
+            <div class="space-y-2.5">
               <div class="flex justify-between items-center">
-                <span class="text-xs text-slate-400">Estrés</span>
-                <div class="w-32 h-2 bg-slate-800 rounded-full overflow-hidden">
+                <span class="text-[11px] text-slate-400">Estrés</span>
+                <div class="w-28 h-1.5 bg-slate-800 rounded-full overflow-hidden">
                   <div class="w-2/3 h-full bg-gradient-to-r from-red-600 to-red-400 rounded-full"></div>
                 </div>
               </div>
               <div class="flex justify-between items-center">
-                <span class="text-xs text-slate-400">Sueño</span>
-                <div class="w-32 h-2 bg-slate-800 rounded-full overflow-hidden">
+                <span class="text-[11px] text-slate-400">Sueño</span>
+                <div class="w-28 h-1.5 bg-slate-800 rounded-full overflow-hidden">
                   <div class="w-4/5 h-full bg-gradient-to-r from-cyan-600 to-cyan-400 rounded-full"></div>
                 </div>
               </div>
               <div class="flex justify-between items-center">
-                <span class="text-xs text-slate-400">Ejercicio</span>
-                <div class="w-32 h-2 bg-slate-800 rounded-full overflow-hidden">
+                <span class="text-[11px] text-slate-400">Ejercicio</span>
+                <div class="w-28 h-1.5 bg-slate-800 rounded-full overflow-hidden">
                   <div class="w-1/2 h-full bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-full"></div>
                 </div>
               </div>
-              <div class="mt-4 p-4 bg-slate-900 rounded-xl border border-slate-800">
-                <div class="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Estado Actual</div>
-                <div class="text-sm font-bold text-purple-400">✨ Flujo Creativo</div>
-                <div class="text-[10px] text-slate-400 mt-1">Máximo desempeño cognitivo</div>
+              <div class="mt-3 p-3 bg-slate-900 rounded-lg border border-slate-800">
+                <div class="text-[9px] text-slate-500 uppercase tracking-wider">Estado</div>
+                <div class="text-xs font-bold text-purple-400">✨ Flujo Creativo</div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- More tools placeholder -->
-      <div class="mt-8 grid md:grid-cols-2 gap-6">
-        <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 border-dashed opacity-60">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center">
-              <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-            </div>
-            <span class="text-sm font-medium text-slate-400">Próximamente</span>
-          </div>
-          <h4 class="font-bold text-slate-300">Guías de Meditación</h4>
-          <p class="text-xs text-slate-500 mt-1">Ejercicios guiados basados en neurociencia</p>
-        </div>
-        <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 border-dashed opacity-60">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center">
-              <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-            </div>
-            <span class="text-sm font-medium text-slate-400">Próximamente</span>
-          </div>
-          <h4 class="font-bold text-slate-300">Calculadora de Bienestar</h4>
-          <p class="text-xs text-slate-500 mt-1">Evalúa tu equilibrio vida-emociones</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-24 px-6 bg-gradient-to-b from-slate-900/50 to-slate-950">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-        <span class="gradient-text">Únete a la comunidad</span>
+  <!-- CTA Final -->
+  <section class="py-16 px-6 bg-gradient-to-b from-slate-900/30 to-slate-950">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">
+        <span class="gradient-text">Únete a nuestra comunidad</span>
       </h2>
-      <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
-        Más de 171,000 personas ya reciben diariamente mensajes que transforman su vida. No seas la excepción.
+      <p class="text-slate-400 mb-8">
+        Más de 171,000 personas ya reciben diariamente mensajes que transforman su vida.
       </p>
       
       <a href="https://www.facebook.com/mensajespositivosydereflexion" target="_blank"
-         class="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-10 py-5 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl shadow-purple-500/25">
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+         class="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-xl shadow-purple-500/25">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         Seguir en Facebook
       </a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-8 px-6 border-t border-slate-800/50">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+  <footer class="py-6 px-6 border-t border-slate-800/50">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="flex items-center gap-2">
-        <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        <div class="w-6 h-6 bg-gradient-to-br from-purple-500 to-blue-500 rounded-md flex items-center justify-center">
+          <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
         </div>
-        <span class="text-sm text-slate-400">Mensajes Positivos y de Reflexión</span>
+        <span class="text-xs text-slate-500">Mensajes Positivos y de Reflexión</span>
       </div>
-      <div class="text-xs text-slate-600">
-        Hecho con ❤️ para alimentar almas
-      </div>
+      <div class="text-[10px] text-slate-600">Hecho con amor para alimentar almas</div>
     </div>
   </footer>
 
