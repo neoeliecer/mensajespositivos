@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brainwave Coherence & Biofeedback Lab</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .cyber-grid {
+      background-size: 30px 30px;
+      background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    }
+    @keyframes pulse-glow {
+      0%, 100% { transform: scale(0.85); box-shadow: 0 0 15px rgba(16, 185, 129, 0.2); }
+      50% { transform: scale(1.15); box-shadow: 0 0 35px rgba(16, 185, 129, 0.7); }
+    }
+    .breathing-ring {
+      animation: pulse-glow 10s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased pb-12">
+
+  <header class="border-b border-slate-800 bg-slate-900/60 backdrop-blur sticky top-0 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>
+        <h1 class="text-2xl font-black bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-500 bg-clip-text text-transparent tracking-tight">
+          BRAINWAVE COHERENCE LAB
+        </h1>
+        <p class="text-xs text-slate-400 font-medium">Sincronizador Respiratorio con Biofeedback por Micrófono y Ondas Binaurales</p>
+      </div>
+      <div id="badge-coherencia" class="px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 bg-red-950/80 text-red-300 border border-red-500/40">
+        Coherencia: Desconectado
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+    
+    <section class="lg:col-span-4 flex flex-col gap-6">
+      
+      <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col items-center gap-4 text-center">
+        <div>
+          <h2 class="text-lg font-bold text-slate-200">Guía de Respiración</h2>
+          <p class="text-xs text-slate-400">Sincroniza tu exhalación con la contracción de la esfera</p>
+        </div>
+        <div class="relative w-48 h-48 flex items-center justify-center">
+          <div id="breath-circle" class="absolute w-36 h-36 rounded-full bg-gradient-to-tr from-emerald-500/10 to-teal-500/30 border-2 border-emerald-500 breathing-ring flex items-center justify-center">
+            <span id="breath-text" class="text-xs font-black uppercase text-emerald-400 tracking-wider">Inhala</span>
+          </div>
+        </div>
+        <div class="text-[10px] text-slate-500 font-semibold uppercase tracking-widest" id="pacer-timer">Fase de 5 segundos</div>
+      </div>
+
+      <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col gap-4">
+        <h2 class="text-base font-bold text-slate-200">Controles de Biofeedback</h2>
+        
+        <button id="btn-audio" onclick="toggleBinauralMusic()" class="w-full bg-indigo-600/30 hover:bg-indigo-600/50 border border-indigo-500 text-indigo-200 py-3 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
+          <span>🎵 Activar Ondas Alpha (10Hz)</span>
+        </button>
+
+        <button id="btn-mic" onclick="toggleMicrophone()" class="w-full bg-emerald-600/30 hover:bg-emerald-600/50 border border-emerald-500 text-emerald-200 py-3 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
+          <span>🎙️ Calibrar Sensor de Micrófono</span>
+        </button>
+
+        <div class="flex flex-col gap-1.5 mt-2">
+          <div class="flex justify-between text-[11px] text-slate-400">
+            <span>Señal del Micrófono (Ruido/Soplo):</span>
+            <span id="mic-level-text" class="font-mono text-emerald-400">0%</span>
+          </div>
+          <div class="w-full bg-slate-950 h-2 rounded-full overflow-hidden border border-slate-800">
+            <div id="bar-mic" class="bg-emerald-500 h-full transition-all duration-100" style="width: 0%;"></div>
+          </div>
+          <p class="text-[10px] text-slate-500 italic">Sopla suavemente al micrófono en fase de EXHALA para elevar tu Coherencia.</p>
+        </div>
+      </div>
+      
+      <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col gap-4">
+        <h2 class="text-base font-bold text-slate-200">Monitoreo Psiconeurobiológico</h2>
+        <div class="flex flex-col gap-1">
+          <div class="flex justify-between text-xs">
+            <span class="text-slate-400">Cortisol (Hormona del Estrés)</span>
+            <span id="hormona-cortisol" class="font-mono text-red-400 font-bold">150 ng/mL</span>
+          </div>
+          <div class="w-full bg-slate-850 h-2 rounded-full overflow-hidden border border-slate-800">
+            <div id="bar-cortisol" class="bg-red-500 h-full transition-all duration-300" style="width: 50%;"></div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-1">
+          <div class="flex justify-between text-xs">
+            <span class="text-slate-400">Oxitocina (Vínculo/Calma)</span>
+            <span id="hormona-oxitocina" class="font-mono text-emerald-400 font-bold">30 pg/mL</span>
+          </div>
+          <div class="w-full bg-slate-850 h-2 rounded-full overflow-hidden border border-slate-800">
+            <div id="bar-oxitocina" class="bg-emerald-500 h-full transition-all duration-300" style="width: 30%;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lg:col-span-8 flex flex-col gap-8">
+      
+      <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col gap-4">
+        <div>
+          <h2 class="text-lg font-bold text-slate-200">Osciloscopio de Coherencia EEG en Tiempo Real</h2>
+          <p class="text-xs text-slate-400 font-medium">La onda superior muestra tu firma compuesta; abajo, las ondas individuales integradas.</p>
+        </div>
+
+        <div class="relative w-full aspect-[21/9] bg-slate-950 border border-slate-800 rounded-xl overflow-hidden cyber-grid flex items-center justify-center">
+          <canvas id="oscilos-canvas" class="absolute inset-0 w-full h-full"></canvas>
+          <div id="noise-overlay" class="absolute inset-0 pointer-events-none bg-gradient-to-t from-red-500/5 via-transparent to-emerald-500/5 transition-all duration-500"></div>
+        </div>
+
+        <div class="grid grid-cols-5 gap-2 text-center text-[10px] font-semibold border-t border-slate-800/60 pt-4">
+          <div class="flex flex-col items-center gap-1">
+            <span class="w-3 h-3 rounded bg-[#ef4444] block"></span>
+            <span class="text-slate-400">Delta (Sueño)</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="w-3 h-3 rounded bg-[#3b82f6] block"></span>
+            <span class="text-slate-400">Theta (Subconsciente)</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="w-3 h-3 rounded bg-[#10b981] block"></span>
+            <span class="text-slate-400">Alpha (Relajación)</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="w-3 h-3 rounded bg-[#f59e0b] block"></span>
+            <span class="text-slate-400">Beta (Alerta)</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="w-3 h-3 rounded bg-[#ec4899] block"></span>
+            <span class="text-slate-400">Gamma (Foco)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col gap-3">
+          <h3 class="text-xs uppercase tracking-widest font-black text-slate-400">Efecto Neuroendocrino de Coherencia</h3>
+          <p id="coherence-analysis-text" class="text-xs text-slate-300 leading-relaxed">
+            Inicia tu sesión de entrenamiento. Sintonizar tu respiración con la guía estimula las aferencias del nervio vago, induciendo la liberación de oxitocina y reduciendo la secreción de cortisol del eje hipotálamo-hipófisis-suprarrenal (HHS).
+          </p>
+        </div>
+        <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col gap-3">
+          <h3 class="text-xs uppercase tracking-widest font-black text-slate-400">Frecuencia Resonante</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Una respiración profunda rítmica (0.1 Hz) estabiliza la modulación cardíaca facilitando el acoplamiento armónico entre la corteza cingulada anterior y el hipotálamo, restaurando el control cortical descendente (top-down) sobre la reactividad emocional.
+          </p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    const canvas = document.getElementById('oscilos-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    let coherenceScore = 15;
+    let userCoherence = 15;
+    let offsetTime = 0;
+    
+    let pacerPhase = 'inhala';
+    let pacerTimer = 0;
+    const breathCircle = document.getElementById('breath-circle');
+    const breathText = document.getElementById('breath-text');
+    const pacerTimerText = document.getElementById('pacer-timer');
+
+    let audioCtx = null;
+    let leftOsc, rightOsc, merger, gainNode, waveGain, noiseSource;
+    let audioActive = false;
+
+    let micStream = null;
+    let micAnalyser = null;
+    let micSource = null;
+    let dataArray = null;
+    let micActive = false;
+
+    const badgeCoherencia = document.getElementById('badge-coherencia');
+    const barCortisol = document.getElementById('bar-cortisol');
+    const labelCortisol = document.getElementById('hormona-cortisol');
+    const barOxitocina = document.getElementById('bar-oxitocina');
+    const labelOxitocina = document.getElementById('hormona-oxitocina');
+    const labelMicText = document.getElementById('mic-level-text');
+    const barMic = document.getElementById('bar-mic');
+    const coherenceAnalysis = document.getElementById('coherence-analysis-text');
+
+    function resizeCanvas() {
+      canvas.width = canvas.clientWidth * window.devicePixelRatio;
+      canvas.height = canvas.clientHeight * window.devicePixelRatio;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const bands = {
+      delta: { freq: 1.5, color: '#ef4444', amp: 0.2 },
+      theta: { freq: 5.5, color: '#3b82f6', amp: 0.15 },
+      alpha: { freq: 10.0, color: '#10b981', amp: 0.1 },
+      beta: { freq: 22.0, color: '#f59e0b', amp: 0.35 },
+      gamma: { freq: 40.0, color: '#ec4899', amp: 0.2 }
+    };
+
+    function toggleBinauralMusic() {
+      if (audioActive) {
+        if (audioCtx) { audioCtx.suspend(); }
+        audioActive = false;
+        document.getElementById('btn-audio').innerHTML = '<span>🎵 Activar Ondas Alpha (10Hz)</span>';
+        document.getElementById('btn-audio').className = 'w-full bg-indigo-600/30 hover:bg-indigo-600/50 border border-indigo-500 text-indigo-200 py-3 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2';
+      } else {
+        if (!audioCtx) { initBinauralSynth(); } else { audioCtx.resume(); }
+        audioActive = true;
+        document.getElementById('btn-audio').innerHTML = '<span>⏸️ Pausar Ondas Alpha</span>';
+        document.getElementById('btn-audio').className = 'w-full bg-red-600/30 hover:bg-red-600/50 border border-red-500 text-red-200 py-3 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2';
+      }
+    }
+
+    function initBinauralSynth() {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      audioCtx = new AudioCtx();
+      leftOsc = audioCtx.createOscillator();
+      leftOsc.frequency.value = 100;
+      leftOsc.type = 'sine';
+      rightOsc = audioCtx.createOscillator();
+      rightOsc.frequency.value = 110;
+      rightOsc.type = 'sine';
+      merger = audioCtx.createChannelMerger(2);
+      leftOsc.connect(merger, 0, 0);
+      rightOsc.connect(merger, 0, 1);
+      gainNode = audioCtx.createGain();
+      gainNode.gain.value = 0.05;
+      merger.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      const bufferSize = 2 * audioCtx.sampleRate;
+      const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const output = noiseBuffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) { output[i] = Math.random() * 2 - 1; }
+      noiseSource = audioCtx.createBufferSource();
+      noiseSource.buffer = noiseBuffer;
+      noiseSource.loop = true;
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.value = 350;
+      waveGain = audioCtx.createGain();
+      waveGain.gain.value = 0.03;
+      noiseSource.connect(filter);
+      filter.connect(waveGain);
+      waveGain.connect(audioCtx.destination);
+      leftOsc.start();
+      rightOsc.start();
+      noiseSource.start();
+    }
+
+    function toggleMicrophone() {
+      if (micActive) {
+        if (micStream) { micStream.getTracks().forEach(track => track.stop()); }
+        micActive = false;
+        micAnalyser = null;
+        document.getElementById('btn-mic').innerHTML = '<span>🎙️ Calibrar Sensor de Micrófono</span>';
+        document.getElementById('btn-mic').className = 'w-full bg-emerald-600/30 hover:bg-emerald-600/50 border border-emerald-500 text-emerald-200 py-3 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2';
+      } else {
+        navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+          .then(stream => {
+            micStream = stream;
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            const ctx = audioCtx || new AudioCtx();
+            if (!audioCtx) audioCtx = ctx;
+            micAnalyser = ctx.createAnalyser();
+            micAnalyser.fftSize = 256;
+            const bufferLength = micAnalyser.frequencyBinCount;
+            dataArray = new Uint8Array(bufferLength);
+            micSource = ctx.createMediaStreamSource(stream);
+            micSource.connect(micAnalyser);
+            micActive = true;
+            document.getElementById('btn-mic').innerHTML = '<span>🛑 Desactivar Micrófono</span>';
+            document.getElementById('btn-mic').className = 'w-full bg-red-600/30 hover:bg-red-600/50 border border-red-500 text-red-200 py-3 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2';
+          })
+          .catch(err => {
+            alert('No se pudo acceder al micrófono. Por favor, otorga los permisos necesarios.');
+            console.error(err);
+          });
+      }
+    }
+
+    function getMicAmplitude() {
+      if (!micAnalyser) return 0;
+      micAnalyser.getByteFrequencyData(dataArray);
+      let values = 0;
+      for (let i = 0; i < dataArray.length; i++) { values += dataArray[i]; }
+      return values / dataArray.length;
+    }
+
+    function updatePhysics() {
+      pacerTimer += 16.67;
+      let phaseTime = (pacerTimer / 1000) % 10;
+
+      if (phaseTime < 5) {
+        pacerPhase = 'inhala';
+        breathText.innerText = "Inhala";
+        pacerTimerText.innerText = `Fase Inhalación: ${Math.round(5 - phaseTime)}s`;
+        const scale = 0.85 + (phaseTime / 5) * 0.3;
+        breathCircle.style.transform = `scale(${scale})`;
+        if (waveGain && audioActive) {
+          waveGain.gain.setTargetAtTime(0.01 + (phaseTime / 5) * 0.05, audioCtx.currentTime, 0.1);
+        }
+      } else {
+        pacerPhase = 'exhala';
+        breathText.innerText = "Exhala";
+        pacerTimerText.innerText = `Fase Exhalación: ${Math.round(10 - phaseTime)}s`;
+        const scale = 1.15 - ((phaseTime - 5) / 5) * 0.3;
+        breathCircle.style.transform = `scale(${scale})`;
+        if (waveGain && audioActive) {
+          waveGain.gain.setTargetAtTime(0.06 - ((phaseTime - 5) / 5) * 0.05, audioCtx.currentTime, 0.1);
+        }
+      }
+
+      let micVal = 0;
+      if (micActive) {
+        micVal = getMicAmplitude();
+        let micPercentage = Math.round((micVal / 120) * 100);
+        micPercentage = Math.min(100, micPercentage);
+        labelMicText.innerText = `${micPercentage}%`;
+        barMic.style.width = `${micPercentage}%`;
+        if (pacerPhase === 'exhala' && micVal > 12) {
+          userCoherence += 0.45;
+        } else if (pacerPhase === 'inhala' && micVal > 12) {
+          userCoherence -= 0.15;
+        } else {
+          userCoherence -= 0.05;
+        }
+      } else {
+        userCoherence += (40 - userCoherence) * 0.01;
+      }
+
+      userCoherence = Math.max(15, Math.min(100, userCoherence));
+      coherenceScore = Math.round(userCoherence);
+
+      if (coherenceScore >= 75) {
+        badgeCoherencia.innerText = `Coherencia: ¡EXCELENTE! (${coherenceScore}%)`;
+        badgeCoherencia.className = "px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 bg-emerald-950/80 text-emerald-300 border border-emerald-500/40 animate-pulse";
+        coherenceAnalysis.innerText = "Excelente sincronización. Tu respiración rítmica estimula el nervio vago, induciendo oxitocina y bajando rápidamente el cortisol. El osciloscopio muestra un acoplamiento sinusoidal perfecto de ondas Alfa.";
+      } else if (coherenceScore >= 45) {
+        badgeCoherencia.innerText = `Coherencia: Moderada (${coherenceScore}%)`;
+        badgeCoherencia.className = "px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 bg-cyan-950/80 text-cyan-300 border border-cyan-500/30";
+        coherenceAnalysis.innerText = "Sintonización en progreso. Intenta exhalar lentamente, generando una corriente de aire continua frente al micrófono cuando el pacer se contraiga.";
+      } else {
+        badgeCoherencia.innerText = `Coherencia: Baja / Incoherente (${coherenceScore}%)`;
+        badgeCoherencia.className = "px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 bg-red-950/80 text-red-300 border border-red-500/40";
+        coherenceAnalysis.innerText = "Estado simpático o rumiación activa. El cortisol permanece elevado, fragmentando la sincronía neuronal y desalineando la fase en el osciloscopio.";
+      }
+
+      const cortisolLevel = Math.round(150 - (coherenceScore - 15) * 1.3);
+      const oxitocinaLevel = Math.round(20 + (coherenceScore - 15) * 1.1);
+      labelCortisol.innerText = `${cortisolLevel} ng/mL`;
+      barCortisol.style.width = `${Math.min(100, (cortisolLevel / 180) * 100)}%`;
+      labelOxitocina.innerText = `${oxitocinaLevel} pg/mL`;
+      barOxitocina.style.width = `${Math.min(100, (oxitocinaLevel / 120) * 100)}%`;
+
+      const chaosFactor = (100 - coherenceScore) / 100;
+      bands.alpha.amp = 0.05 + (coherenceScore / 100) * 0.45;
+      bands.beta.amp = 0.05 + (chaosFactor * 0.35);
+      bands.gamma.amp = 0.02 + (chaosFactor * 0.2);
+    }
+
+    function drawOscilloscope() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const width = canvas.width;
+      const height = canvas.height;
+      const midY = height / 2;
+
+      ctx.strokeStyle = 'rgba(51, 65, 85, 0.1)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < width; i += 40) {
+        ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, height); ctx.stroke();
+      }
+      for (let i = 0; i < height; i += 40) {
+        ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(width, i); ctx.stroke();
+      }
+
+      const chaosFactor = (100 - coherenceScore) / 100;
+      const waveScale = height / 4.5;
+
+      for (let name in bands) {
+        const band = bands[name];
+        ctx.beginPath();
+        ctx.strokeStyle = band.color + '22';
+        ctx.lineWidth = 1.5;
+        for (let x = 0; x < width; x++) {
+          const t = (x / width) * 4 + offsetTime;
+          const phaseJitter = chaosFactor * 2.0 * Math.sin(t * 10.0 + name.charCodeAt(0));
+          const val = band.amp * Math.sin((t * band.freq * Math.PI) + phaseJitter);
+          const y = (midY + 40) + (val * (height / 8));
+          if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+
+      ctx.beginPath();
+      const r = Math.round(239 - (coherenceScore * 2.2));
+      const g = Math.round(68 + (coherenceScore * 1.1));
+      const b = Math.round(68 + (coherenceScore * 1.8));
+      ctx.strokeStyle = `rgb(${r}, ${g}, ${b})`;
+      ctx.shadowColor = `rgba(${r}, ${g}, ${b}, 0.5)`;
+      ctx.shadowBlur = coherenceScore >= 70 ? 12 : 2;
+      ctx.lineWidth = 4.5;
+
+      for (let x = 0; x < width; x++) {
+        let compoundVal = 0;
+        const t = (x / width) * 4 + offsetTime;
+        for (let name in bands) {
+          const band = bands[name];
+          const phaseJitter = chaosFactor * 2.5 * Math.sin(t * 12.0 + name.charCodeAt(0));
+          const highFreqNoise = chaosFactor * 0.12 * (Math.random() - 0.5);
+          compoundVal += band.amp * Math.sin((t * band.freq * Math.PI) + phaseJitter) + highFreqNoise;
+        }
+        const y = midY + (compoundVal * waveScale);
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      offsetTime += 0.0035;
+    }
+
+    function mainLoop() {
+      updatePhysics();
+      drawOscilloscope();
+      requestAnimationFrame(mainLoop);
+    }
+
+    mainLoop();
+  </script>
+</body>
+</html>
