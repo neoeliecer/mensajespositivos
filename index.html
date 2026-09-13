@@ -320,6 +320,86 @@
           </div>
         </div>
       </div>
+      <!-- Simulador Unificado Card -->
+      <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-10 border border-slate-700/50">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <!-- Preview del unificado -->
+          <div class="bg-slate-950 rounded-xl border border-slate-800 p-5 order-2 md:order-1">
+            <div class="flex items-center gap-1.5 mb-3">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+              <span class="text-[10px] text-slate-600 ml-2">simulador_unificado.html</span>
+            </div>
+            <div class="space-y-3">
+              <!-- Mini matriz 2D -->
+              <div class="h-24 relative rounded-lg bg-slate-900 border border-slate-800 overflow-hidden">
+                <svg viewBox="0 0 100 100" class="w-full h-full">
+                  <line x1="10" y1="90" x2="90" y2="90" stroke="rgba(34,197,94,0.3)" stroke-width="0.5"/>
+                  <line x1="10" y1="90" x2="10" y2="10" stroke="rgba(34,197,94,0.3)" stroke-width="0.5"/>
+                  <line x1="50" y1="10" x2="50" y2="90" stroke="rgba(34,197,94,0.1)" stroke-width="0.3" stroke-dasharray="2"/>
+                  <line x1="10" y1="50" x2="90" y2="50" stroke="rgba(34,197,94,0.1)" stroke-width="0.3" stroke-dasharray="2"/>
+                  <circle cx="65" cy="35" r="3" fill="#22c55e"/>
+                  <circle cx="65" cy="35" r="6" fill="none" stroke="rgba(34,197,94,0.3)" stroke-width="0.5"/>
+                </svg>
+              </div>
+              <!-- Mini ondas EEG -->
+              <div class="h-12 relative rounded-lg bg-slate-900 border border-slate-800 overflow-hidden">
+                <svg viewBox="0 0 100 30" class="w-full h-full">
+                  <path d="M0,15 Q12,5 25,15 T50,15 T75,15 T100,15" fill="none" stroke="#22c55e" stroke-width="0.8" opacity="0.7"/>
+                  <path d="M0,15 Q10,10 20,15 T40,15 T60,15 T80,15 T100,15" fill="none" stroke="#3b82f6" stroke-width="0.6" opacity="0.5"/>
+                  <path d="M0,15 Q8,12 16,15 T32,15 T48,15 T64,15 T80,15 T96,15" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.8"/>
+                </svg>
+              </div>
+              <!-- Preajustes -->
+              <div class="flex gap-1 flex-wrap">
+                <span class="text-[7px] px-1.5 py-0.5 rounded bg-red-900/30 text-red-400 border border-red-800/30">Pánico</span>
+                <span class="text-[7px] px-1.5 py-0.5 rounded bg-emerald-900/30 text-emerald-400 border border-emerald-800/30">Flujo</span>
+                <span class="text-[7px] px-1.5 py-0.5 rounded bg-purple-900/30 text-purple-400 border border-purple-800/30">Zazen</span>
+                <span class="text-[7px] px-1.5 py-0.5 rounded bg-blue-900/30 text-blue-400 border border-blue-800/30">Sueño</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-1 md:order-2">
+            <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-400 px-3 py-1.5 rounded-full text-xs font-medium mb-4">
+              <span class="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse"></span>
+              Panel Integrado
+            </div>
+            
+            <h3 class="text-2xl font-bold mb-3">Simulador Unificado Neurodinámico</h3>
+            <p class="text-slate-400 mb-5 leading-relaxed">
+              Todo en un solo panel: Matriz 2D de consciencia, osciloscopio EEG, perfil hormonal derivado, histórico de 30 segundos y preajustes instantáneos con transiciones suaves.
+            </p>
+
+            <ul class="space-y-2 mb-6 text-sm">
+              <li class="flex items-center gap-2 text-slate-300">
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                Matriz 2D Dopamina vs. Serotonina con arrastrar
+              </li>
+              <li class="flex items-center gap-2 text-slate-300">
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                5 bandas EEG reactivas en tiempo real
+              </li>
+              <li class="flex items-center gap-2 text-slate-300">
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                Preajustes: Pánico, Flujo, Zazen, Sueño NREM
+              </li>
+              <li class="flex items-center gap-2 text-slate-300">
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                Histórico de 30s con gráfico en vivo
+              </li>
+            </ul>
+
+            <a href="simulador_unificado.html" 
+               class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-amber-500/25">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Abrir Panel Unificado
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
