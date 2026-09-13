@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulador Neurodinámico Unificado - Mensajes Positivos</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap');
+body { background: #030712; overflow-x: hidden; }
+.glow-green { text-shadow: 0 0 20px rgba(34,197,94,0.8), 0 0 40px rgba(34,197,94,0.4); }
+.glow-blue { text-shadow: 0 0 20px rgba(59,130,246,0.8), 0 0 40px rgba(59,130,246,0.4); }
+.glow-purple { text-shadow: 0 0 20px rgba(168,85,247,0.8), 0 0 40px rgba(168,85,247,0.4); }
+.orbitron { font-family: 'Orbitron', monospace; }
+.inter { font-family: 'Inter', sans-serif; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+.pulse-slow { animation: pulse 2s ease-in-out infinite; }
+.panel {
+  background: rgba(15,23,42,0.8);
+  border: 1px solid rgba(34,197,94,0.15);
+  backdrop-filter: blur(12px);
+}
+.panel:hover { border-color: rgba(34,197,94,0.3); }
+.neon-border {
+  border: 1px solid rgba(34,197,94,0.2);
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.5), 0 0 15px rgba(34,197,94,0.1);
+}
+.preset-btn {
+  background: rgba(15,23,42,0.9);
+  border: 1px solid rgba(34,197,94,0.2);
+  color: #22c55e;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.preset-btn:hover {
+  background: rgba(34,197,94,0.15);
+  border-color: rgba(34,197,94,0.5);
+  box-shadow: 0 0 15px rgba(34,197,94,0.3);
+}
+.preset-btn.active {
+  background: rgba(34,197,94,0.2);
+  border-color: #22c55e;
+  box-shadow: 0 0 20px rgba(34,197,94,0.4);
+}
+.progress-bar {
+  height: 8px;
+  background: rgba(30,41,59,0.8);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.time-display {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+</style>
+</head>
+<body class="min-h-screen text-white inter">
+
+<!-- Header -->
+<header class="relative z-10 border-b border-green-900/30 bg-slate-950/80 backdrop-blur-xl">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div>
+        <h1 class="text-xl sm:text-2xl font-bold orbitron glow-green">NEURODYNAMICS INTEGRATED DASHBOARD</h1>
+        <p class="text-slate-400 text-xs sm:text-sm mt-1">Acoplamiento en Tiempo Real: Matriz 2D ↔ Osciloscopio EEG</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="status-badge bg-green-900/30 text-green-400 border border-green-700/30">
+          <span class="w-2 h-2 rounded-full bg-green-400 pulse-slow"></span>
+          <span>Sistema Activo</span>
+        </div>
+        <div class="text-right">
+          <div class="text-slate-500 text-xs">TIEMPO</div>
+          <div id="globalTime" class="text-green-400 font-bold time-display orbitron text-lg">00:00:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Preset Bar -->
+<section class="border-b border-green-900/30 bg-slate-950/60 backdrop-blur-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+      <span class="text-slate-400 text-xs sm:text-sm whitespace-nowrap">⚡ Preajustes Instantáneos:</span>
+      <div class="flex flex-wrap gap-2">
+        <button onclick="applyPreset('panic')" class="preset-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold" id="btn-panic">Ataque de Pánico</button>
+        <button onclick="applyPreset('flow')" class="preset-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold" id="btn-flow">Estado de Flujo</button>
+        <button onclick="applyPreset('zen')" class="preset-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold" id="btn-zen">Meditación Zazen</button>
+        <button onclick="applyPreset('deep')" class="preset-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold" id="btn-deep">Sueño NREM</button>
+        <button onclick="applyPreset('reset')" class="preset-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border-red-900/30 text-red-400 hover:bg-red-900/20 hover:border-red-700/50" id="btn-reset">Reiniciar</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+    <!-- LEFT PANEL: 2D Matrix + Hormonal Profile -->
+    <div class="space-y-6">
+
+      <!-- 2D Matrix Canvas -->
+      <div class="panel rounded-2xl p-4 sm:p-6">
+        <div class="mb-4">
+          <h2 class="text-lg font-bold text-green-400 orbitron">1. Matriz 2D (Dopamina vs. Serotonina)</h2>
+          <p class="text-slate-500 text-xs mt-1">Haz clic o arrastra el punto para alterar los estados neuroquímicos.</p>
+        </div>
+        <div class="neon-border rounded-xl overflow-hidden" style="position:relative;">
+          <canvas id="matrixCanvas" width="500" height="500" style="width:100%;height:auto;display:block;cursor:crosshair;"></canvas>
+        </div>
+        <div class="flex justify-between mt-3 text-xs text-slate-400">
+          <span class="text-blue-400 font-bold">Dopamina (X): <span id="dopVal" class="text-blue-300">120%</span></span>
+          <span class="text-green-400 font-bold">Serotonina (Y): <span id="serVal" class="text-green-300">50%</span></span>
+        </div>
+      </div>
+
+      <!-- Hormonal Profile -->
+      <div class="panel rounded-2xl p-4 sm:p-6">
+        <h3 class="text-base font-bold text-purple-400 orbitron mb-4">Perfil Hormonal Derivado</h3>
+        <div class="space-y-4">
+          <!-- Cortisol -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-red-400">Cortisol (Estrés)</span>
+              <span id="cortisolVal" class="text-red-300 font-bold">50%</span>
+            </div>
+            <div class="progress-bar"><div id="cortisolBar" class="progress-fill bg-gradient-to-r from-red-600 to-red-400" style="width:50%"></div></div>
+          </div>
+          <!-- Oxytocin -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-purple-400">Oxitocina (Calma/Vínculo)</span>
+              <span id="oxytocinVal" class="text-purple-300 font-bold">50%</span>
+            </div>
+            <div class="progress-bar"><div id="oxytocinBar" class="progress-fill bg-gradient-to-r from-purple-600 to-purple-400" style="width:50%"></div></div>
+          </div>
+          <!-- Adrenaline -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-yellow-400">Adrenalina (Alerta)</span>
+              <span id="adrenalineVal" class="text-yellow-300 font-bold">30%</span>
+            </div>
+            <div class="progress-bar"><div id="adrenalineBar" class="progress-fill bg-gradient-to-r from-yellow-600 to-yellow-400" style="width:30%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: EEG Oscilloscope + Diagnostic -->
+    <div class="space-y-6">
+
+      <!-- EEG Oscilloscope -->
+      <div class="panel rounded-2xl p-4 sm:p-6">
+        <div class="mb-4">
+          <h2 class="text-lg font-bold text-blue-400 orbitron">2. Osciloscopio EEG Reconstructivo</h2>
+          <p class="text-slate-500 text-xs mt-1">Visualización de ondas cerebrales generadas dinámicamente por la posición 2D.</p>
+        </div>
+        <div class="neon-border rounded-xl overflow-hidden">
+          <canvas id="eegCanvas" width="500" height="300" style="width:100%;height:auto;display:block;"></canvas>
+        </div>
+        <div class="flex flex-wrap gap-3 mt-3 justify-center">
+          <span class="text-xs font-bold text-purple-400">■ Delta</span>
+          <span class="text-xs font-bold text-blue-400">■ Theta</span>
+          <span class="text-xs font-bold text-green-400">■ Alpha</span>
+          <span class="text-xs font-bold text-yellow-400">■ Beta</span>
+          <span class="text-xs font-bold text-red-400">■ Gamma</span>
+        </div>
+      </div>
+
+      <!-- Diagnostic Status -->
+      <div class="panel rounded-2xl p-4 sm:p-6">
+        <h3 class="text-base font-bold text-cyan-400 orbitron mb-3">Estado Diagnóstico Actual</h3>
+        <div class="bg-slate-900/50 rounded-xl p-4 border border-slate-800">
+          <h4 id="diagTitle" class="text-lg font-bold text-white">Vigilia Normal Coherente</h4>
+          <p id="diagSubtitle" class="text-slate-400 text-sm mt-1">Equilibrio homeostático ordinario</p>
+        </div>
+        <p id="diagDescription" class="text-slate-400 text-xs leading-relaxed mt-3">
+          La mente se encuentra en equilibrio. Las ondas Alfa y Beta intermedia mantienen un flujo constante sin presencia de desincronización o estrés elevado.
+        </p>
+      </div>
+
+      <!-- Time History Chart -->
+      <div class="panel rounded-2xl p-4 sm:p-6">
+        <h3 class="text-base font-bold text-emerald-400 orbitron mb-3">Histórico de Neuroquímica (30s)</h3>
+        <div class="neon-border rounded-xl overflow-hidden">
+          <canvas id="historyCanvas" width="500" height="150" style="width:100%;height:auto;display:block;"></canvas>
+        </div>
+        <div class="flex gap-4 mt-2 justify-center">
+          <span class="text-xs text-blue-400">● Dopamina</span>
+          <span class="text-xs text-green-400">● Serotonina</span>
+          <span class="text-xs text-red-400">● Cortisol</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<script>
+// ===== GLOBAL STATE =====
+const state = {
+  dopamine: 120,
+  serotonin: 50,
+  cortisol: 50,
+  oxytocin: 50,
+  adrenaline: 30,
+  targetDopamine: 120,
+  targetSerotonin: 50,
+  isDragging: false,
+  time: 0,
+  history: { dopamine: [], serotonin: [], cortisol: [], timestamps: [] },
+  lastPreset: null
+};
+
+// ===== CANVAS SETUP =====
+const matrixCanvas = document.getElementById('matrixCanvas');
+const matrixCtx = matrixCanvas.getContext('2d');
+const eegCanvas = document.getElementById('eegCanvas');
+const eegCtx = eegCanvas.getContext('2d');
+const historyCanvas = document.getElementById('historyCanvas');
+const historyCtx = historyCanvas.getContext('2d');
+
+// ===== MATRIX 2D =====
+function drawMatrix() {
+  const w = matrixCanvas.width, h = matrixCanvas.height;
+  const pad = 50;
+  const plotW = w - pad * 2, plotH = h - pad * 2;
+
+  matrixCtx.clearRect(0, 0, w, h);
+
+  // Background grid
+  matrixCtx.strokeStyle = 'rgba(34,197,94,0.08)';
+  matrixCtx.lineWidth = 1;
+  for (let i = 0; i <= 10; i++) {
+    const x = pad + (plotW / 10) * i;
+    const y = pad + (plotH / 10) * i;
+    matrixCtx.beginPath(); matrixCtx.moveTo(x, pad); matrixCtx.lineTo(x, h - pad); matrixCtx.stroke();
+    matrixCtx.beginPath(); matrixCtx.moveTo(pad, y); matrixCtx.lineTo(w - pad, y); matrixCtx.stroke();
+  }
+
+  // Axes
+  matrixCtx.strokeStyle = 'rgba(34,197,94,0.3)';
+  matrixCtx.lineWidth = 2;
+  matrixCtx.beginPath(); matrixCtx.moveTo(pad, h - pad); matrixCtx.lineTo(w - pad, h - pad); matrixCtx.stroke();
+  matrixCtx.beginPath(); matrixCtx.moveTo(pad, h - pad); matrixCtx.lineTo(pad, pad); matrixCtx.stroke();
+
+  // Quadrant backgrounds
+  const quadrants = [
+    { x: pad, y: pad, w: plotW/2, h: plotH/2, color: 'rgba(59,130,246,0.03)', label: 'Alta Serotonina\nBaja Dopamina' },
+    { x: pad+plotW/2, y: pad, w: plotW/2, h: plotH/2, color: 'rgba(34,197,94,0.03)', label: 'Alta Serotonina\nAlta Dopamina' },
+    { x: pad, y: pad+plotH/2, w: plotW/2, h: plotH/2, color: 'rgba(168,85,247,0.03)', label: 'Baja Serotonina\nBaja Dopamina' },
+    { x: pad+plotW/2, y: pad+plotH/2, w: plotW/2, h: plotH/2, color: 'rgba(239,68,68,0.03)', label: 'Baja Serotonina\nAlta Dopamina' }
+  ];
+  quadrants.forEach(q => {
+    matrixCtx.fillStyle = q.color;
+    matrixCtx.fillRect(q.x, q.y, q.w, q.h);
+    matrixCtx.fillStyle = 'rgba(148,163,184,0.3)';
+    matrixCtx.font = '10px Inter';
+    const lines = q.label.split('\n');
+    lines.forEach((l, i) => {
+      matrixCtx.fillText(l, q.x + 10, q.y + 18 + i * 14);
+    });
+  });
+
+  // Axis labels
+  matrixCtx.fillStyle = 'rgba(148,163,184,0.7)';
+  matrixCtx.font = '11px Inter';
+  matrixCtx.fillText('← Baja Dopamina', pad + 5, h - 10);
+  matrixCtx.fillText('Alta Dopamina →', w - pad - 90, h - 10);
+  matrixCtx.save();
+  matrixCtx.translate(12, pad + plotH / 2);
+  matrixCtx.rotate(-Math.PI / 2);
+  matrixCtx.fillText('← Baja Serotonina', -40, 0);
+  matrixCtx.fillText('Alta Serotonina →', -40, -15);
+  matrixCtx.restore();
+
+  // Scale markers
+  matrixCtx.fillStyle = 'rgba(148,163,184,0.4)';
+  matrixCtx.font = '9px Inter';
+  for (let i = 0; i <= 10; i += 2) {
+    matrixCtx.fillText((i * 20).toString(), pad + (plotW / 10) * i - 8, h - pad + 15);
+    matrixCtx.fillText((100 - i * 10).toString(), pad - 25, pad + (plotH / 10) * i + 4);
+  }
+
+  // Gradient glow at current point
+  const px = pad + (state.dopamine / 200) * plotW;
+  const py = pad + ((100 - state.serotonin) / 100) * plotH;
+
+  const glow = matrixCtx.createRadialGradient(px, py, 0, px, py, 40);
+  glow.addColorStop(0, 'rgba(34,197,94,0.4)');
+  glow.addColorStop(1, 'rgba(34,197,94,0)');
+  matrixCtx.fillStyle = glow;
+  matrixCtx.fillRect(px - 40, py - 40, 80, 80);
+
+  // Crosshair
+  matrixCtx.strokeStyle = 'rgba(34,197,94,0.2)';
+  matrixCtx.lineWidth = 1;
+  matrixCtx.setLineDash([4, 4]);
+  matrixCtx.beginPath(); matrixCtx.moveTo(px, pad); matrixCtx.lineTo(px, h - pad); matrixCtx.stroke();
+  matrixCtx.beginPath(); matrixCtx.moveTo(pad, py); matrixCtx.lineTo(w - pad, py); matrixCtx.stroke();
+  matrixCtx.setLineDash([]);
+
+  // Point
+  matrixCtx.beginPath();
+  matrixCtx.arc(px, py, 8, 0, Math.PI * 2);
+  matrixCtx.fillStyle = '#22c55e';
+  matrixCtx.fill();
+  matrixCtx.strokeStyle = '#fff';
+  matrixCtx.lineWidth = 2;
+  matrixCtx.stroke();
+
+  // Inner dot
+  matrixCtx.beginPath();
+  matrixCtx.arc(px, py, 3, 0, Math.PI * 2);
+  matrixCtx.fillStyle = '#fff';
+  matrixCtx.fill();
+}
+
+// ===== MATRIX INTERACTION =====
+function getMatrixCoords(e) {
+  const rect = matrixCanvas.getBoundingClientRect();
+  const scaleX = matrixCanvas.width / rect.width;
+  const scaleY = matrixCanvas.height / rect.height;
+  const pad = 50;
+  const plotW = matrixCanvas.width - pad * 2;
+  const plotH = matrixCanvas.height - pad * 2;
+  let x = (e.clientX - rect.left) * scaleX;
+  let y = (e.clientY - rect.top) * scaleY;
+  x = Math.max(pad, Math.min(x, pad + plotW));
+  y = Math.max(pad, Math.min(y, pad + plotH));
+  return {
+    dopamine: ((x - pad) / plotW) * 200,
+    serotonin: 100 - ((y - pad) / plotH) * 100
+  };
+}
+
+matrixCanvas.addEventListener('mousedown', (e) => { state.isDragging = true; updateFromMatrix(e); });
+matrixCanvas.addEventListener('mousemove', (e) => { if (state.isDragging) updateFromMatrix(e); });
+matrixCanvas.addEventListener('mouseup', () => { state.isDragging = false; state.lastPreset = null; clearPresetHighlight(); });
+matrixCanvas.addEventListener('mouseleave', () => { state.isDragging = false; });
+matrixCanvas.addEventListener('touchstart', (e) => { e.preventDefault(); state.isDragging = true; updateFromMatrix(e.touches[0]); }, { passive: false });
+matrixCanvas.addEventListener('touchmove', (e) => { e.preventDefault(); if (state.isDragging) updateFromMatrix(e.touches[0]); }, { passive: false });
+matrixCanvas.addEventListener('touchend', () => { state.isDragging = false; state.lastPreset = null; clearPresetHighlight(); });
+
+function updateFromMatrix(e) {
+  const coords = getMatrixCoords(e);
+  state.dopamine = coords.dopamine;
+  state.serotonin = coords.serotonin;
+  state.targetDopamine = coords.dopamine;
+  state.targetSerotonin = coords.serotonin;
+  updateHormones();
+  state.lastPreset = null;
+  clearPresetHighlight();
+}
+
+// ===== HORMONE CALCULATION =====
+function updateHormones() {
+  const d = state.dopamine / 200;
+  const s = state.serotonin / 100;
+  state.cortisol = Math.round(Math.max(0, Math.min(100, 80 - s * 60 + d * 30)));
+  state.oxytocin = Math.round(Math.max(0, Math.min(100, s * 70 + 10)));
+  state.adrenaline = Math.round(Math.max(0, Math.min(100, d * 50 + (1 - s) * 30)));
+}
+
+// ===== EEG WAVEFORM =====
+let eegTime = 0;
+const eegWaves = {
+  delta: { freq: 2, amp: 0.8, color: '#a855f7' },
+  theta: { freq: 6, amp: 0.5, color: '#3b82f6' },
+  alpha: { freq: 10, amp: 0.6, color: '#22c55e' },
+  beta: { freq: 20, amp: 0.3, color: '#eab308' },
+  gamma: { freq: 40, amp: 0.15, color: '#ef4444' }
+};
+
+function drawEEG() {
+  const w = eegCanvas.width, h = eegCanvas.height;
+  eegCtx.clearRect(0, 0, w, h);
+
+  // Background
+  eegCtx.fillStyle = 'rgba(3,7,18,0.9)';
+  eegCtx.fillRect(0, 0, w, h);
+
+  // Grid
+  eegCtx.strokeStyle = 'rgba(34,197,94,0.06)';
+  eegCtx.lineWidth = 1;
+  for (let i = 0; i < 10; i++) {
+    const y = (h / 10) * i;
+    eegCtx.beginPath(); eegCtx.moveTo(0, y); eegCtx.lineTo(w, y); eegCtx.stroke();
+  }
+  for (let i = 0; i < 20; i++) {
+    const x = (w / 20) * i;
+    eegCtx.beginPath(); eegCtx.moveTo(x, 0); eegCtx.lineTo(x, h); eegCtx.stroke();
+  }
+
+  const s = state.serotonin / 100;
+  const d = state.dopamine / 200;
+  const cortisolFactor = state.cortisol / 100;
+
+  const waves = [
+    { freq: 2, amp: 0.8 * (1 - cortisolFactor * 0.5) * (0.5 + s * 0.5), color: '#a855f7', label: 'Delta' },
+    { freq: 6, amp: 0.5 * (0.3 + s * 0.7), color: '#3b82f6', label: 'Theta' },
+    { freq: 10, amp: 0.6 * s, color: '#22c55e', label: 'Alpha' },
+    { freq: 20, amp: 0.3 * (0.5 + cortisolFactor * 0.5), color: '#eab308', label: 'Beta' },
+    { freq: 40, amp: 0.15 * d, color: '#ef4444', label: 'Gamma' }
+  ];
+
+  const totalAmp = waves.reduce((sum, w) => sum + w.amp, 0);
+  const maxAmp = h * 0.7;
+
+  waves.forEach((wave, idx) => {
+    const normAmp = totalAmp > 0 ? (wave.amp / totalAmp) * maxAmp : maxAmp / 5;
+    const yOffset = ((idx + 1) / (waves.length + 1)) * h;
+
+    eegCtx.beginPath();
+    eegCtx.strokeStyle = wave.color;
+    eegCtx.lineWidth = 1.5;
+    eegCtx.globalAlpha = 0.8;
+
+    for (let x = 0; x < w; x++) {
+      const t = (x / w) * 4 + eegTime;
+      const chaos = cortisolFactor * Math.sin(t * 7.3) * 0.15;
+      const y = yOffset + Math.sin(t * wave.freq * 0.5 + idx) * normAmp * (1 + chaos);
+      if (x === 0) eegCtx.moveTo(x, y);
+      else eegCtx.lineTo(x, y);
+    }
+    eegCtx.stroke();
+    eegCtx.globalAlpha = 1;
+  });
+
+  eegTime += 0.03;
+}
+
+// ===== HISTORY CHART =====
+function drawHistory() {
+  const w = historyCanvas.width, h = historyCanvas.height;
+  historyCtx.clearRect(0, 0, w, h);
+
+  historyCtx.fillStyle = 'rgba(3,7,18,0.9)';
+  historyCtx.fillRect(0, 0, w, h);
+
+  // Grid
+  historyCtx.strokeStyle = 'rgba(34,197,94,0.06)';
+  historyCtx.lineWidth = 1;
+  for (let i = 0; i <= 5; i++) {
+    const y = (h / 5) * i;
+    historyCtx.beginPath(); historyCtx.moveTo(0, y); historyCtx.lineTo(w, y); historyCtx.stroke();
+  }
+
+  const maxPoints = 150;
+  const series = [
+    { data: state.history.dopamine, color: '#3b82f6', max: 200 },
+    { data: state.history.serotonin, color: '#22c55e', max: 100 },
+    { data: state.history.cortisol, color: '#ef4444', max: 100 }
+  ];
+
+  series.forEach(s => {
+    if (s.data.length < 2) return;
+    historyCtx.beginPath();
+    historyCtx.strokeStyle = s.color;
+    historyCtx.lineWidth = 1.5;
+    const step = w / (maxPoints - 1);
+    const startIdx = Math.max(0, s.data.length - maxPoints);
+    for (let i = startIdx; i < s.data.length; i++) {
+      const x = (i - startIdx) * step;
+      const y = h - (s.data[i] / s.max) * h * 0.85 - h * 0.05;
+      if (i === startIdx) historyCtx.moveTo(x, y);
+      else historyCtx.lineTo(x, y);
+    }
+    historyCtx.stroke();
+  });
+}
+
+// ===== UPDATE DISPLAYS =====
+function updateDisplays() {
+  document.getElementById('dopVal').textContent = Math.round(state.dopamine) + '%';
+  document.getElementById('serVal').textContent = Math.round(state.serotonin) + '%';
+  document.getElementById('cortisolVal').textContent = state.cortisol + '%';
+  document.getElementById('oxytocinVal').textContent = state.oxytocin + '%';
+  document.getElementById('adrenalineVal').textContent = state.adrenaline + '%';
+  document.getElementById('cortisolBar').style.width = state.cortisol + '%';
+  document.getElementById('oxytocinBar').style.width = state.oxytocin + '%';
+  document.getElementById('adrenalineBar').style.width = state.adrenaline + '%';
+
+  // Diagnostic
+  let title = 'Vigilia Normal Coherente';
+  let sub = 'Equilibrio homeostático ordinario';
+  let desc = 'La mente se encuentra en equilibrio. Las ondas Alfa y Beta intermedia mantienen un flujo constante sin presencia de desincronización o estrés elevado.';
+
+  if (state.cortisol > 70) {
+    title = '🔴 Estado de Estrés Agudo';
+    sub = 'Respuesta de lucha o huida activada';
+    desc = 'El cortisol domina. Las ondas Beta elevadas y la baja coherencia indican que el cuerpo está en modo de supervivencia. El sistema inmunológico se suprime y la creatividad se bloquea.';
+  } else if (state.oxytocin > 65 && state.cortisol < 30) {
+    title = '🟢 Estado de Calma y Conexión';
+    sub = 'Coherencia cardíaca elevada';
+    desc = 'La oxitocina y la serotonina generan un estado de bienestar. Las ondas Alfa dominan. Este es el estado ideal para la meditación, la conexión social y la sanación.';
+  } else if (state.dopamine > 150 && state.adrenaline > 50) {
+    title = '🟡 Estado de Flujo Creativo';
+    sub = 'Alta dopamina y adrenalina controlada';
+    desc = 'La combinación de alta dopamina y beta moderada crea un estado de flujo. La mente está enfocada, alerta y creativa. Ideal para resolver problemas y crear.';
+  } else if (state.serotonin > 70 && state.dopamine < 80) {
+    title = '🟣 Meditación Profunda';
+    sub = 'Dominancia theta-alfa';
+    desc = 'La alta serotonina con baja dopamina indica un estado meditativo profundo. Las ondas Theta y Alpha dominan. El cuerpo se regenera y la mente se conecta con el subconsciente.';
+  } else if (state.cortisol > 50 && state.dopamine > 120) {
+    title = '🟠 Ansiedad Activa';
+    sub = 'Estrés elevado con hiperactividad dopaminérgica';
+    desc = 'La combinación de cortisol alto y dopamina elevada indica una mente hiperactiva pero estresada. Las ondas Beta-Gamma dominan, creando un ciclo de pensamientos acelerados.';
+  }
+
+  document.getElementById('diagTitle').textContent = title;
+  document.getElementById('diagSubtitle').textContent = sub;
+  document.getElementById('diagDescription').textContent = desc;
+}
+
+// ===== TIME DISPLAY =====
+function updateTime() {
+  state.time++;
+  const hrs = Math.floor(state.time / 3600).toString().padStart(2, '0');
+  const mins = Math.floor((state.time % 3600) / 60).toString().padStart(2, '0');
+  const secs = (state.time % 60).toString().padStart(2, '0');
+  document.getElementById('globalTime').textContent = `${hrs}:${mins}:${secs}`;
+}
+
+// ===== PRESET BUTTONS =====
+function clearPresetHighlight() {
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+}
+
+function applyPreset(name) {
+  const presets = {
+    panic: { dopamine: 180, serotonin: 15, label: 'panic' },
+    flow: { dopamine: 160, serotonin: 65, label: 'flow' },
+    zen: { dopamine: 40, serotonin: 90, label: 'zen' },
+    deep: { dopamine: 20, serotonin: 80, label: 'deep' },
+    reset: { dopamine: 120, serotonin: 50, label: 'reset' }
+  };
+
+  const p = presets[name];
+  if (!p) return;
+
+  state.targetDopamine = p.dopamine;
+  state.targetSerotonin = p.serotonin;
+  state.lastPreset = p.label;
+
+  clearPresetHighlight();
+  const btn = document.getElementById('btn-' + name);
+  if (btn) btn.classList.add('active');
+}
+
+// ===== SMOOTH INTERPOLATION =====
+function interpolateState() {
+  const lerp = 0.08;
+  state.dopamine += (state.targetDopamine - state.dopamine) * lerp;
+  state.serotonin += (state.targetSerotonin - state.serotonin) * lerp;
+  updateHormones();
+}
+
+// ===== HISTORY RECORDING =====
+let historyCounter = 0;
+function recordHistory() {
+  historyCounter++;
+  if (historyCounter % 10 === 0) {
+    state.history.dopamine.push(state.dopamine);
+    state.history.serotonin.push(state.serotonin);
+    state.history.cortisol.push(state.cortisol);
+    if (state.history.dopamine.length > 200) {
+      state.history.dopamine.shift();
+      state.history.serotonin.shift();
+      state.history.cortisol.shift();
+    }
+  }
+}
+
+// ===== MAIN LOOP =====
+function mainLoop() {
+  interpolateState();
+  drawMatrix();
+  drawEEG();
+  drawHistory();
+  updateDisplays();
+  recordHistory();
+  requestAnimationFrame(mainLoop);
+}
+
+// ===== INIT =====
+setInterval(updateTime, 1000);
+updateHormones();
+mainLoop();
+</script>
+
+</body>
+</html>
